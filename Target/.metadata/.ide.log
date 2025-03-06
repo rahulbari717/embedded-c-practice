@@ -360,3 +360,4 @@
 2025-03-04 12:43:56,497 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
 2025-03-04 12:46:32,607 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
 2025-03-04 12:52:23,012 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2025-03-04 18:31:13,852 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
