@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdint.h>
+
+struct carModel {
+	uint32_t carNumber;
+	uint32_t carPrice;
+	uint16_t carMaxSpeed;
+	float carWeight;
+}
+
+int main(){
+
+//	printf("Hello world\n");
+//	printf("Press Enter to exit this application");
+//	getchar();
+
+	struct carModel BMW = {2021, 1500, 220, 1330};
+	printf("Details of car structure ");
+	printf("car number = %u \n ", BMW.carNumber);
+	printf("car price = %u \n ", BMW.carPrice);
+	printf("car Max speed = %u \n ", BMW.carMaxSpeed);
+	printf("car weight = %f \n ", BMW.carWeight);
+
+
+	return 0;
+}

@@ -10,9 +10,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
   2 .rodata       00000010  08000d60  08000d60  00001d60  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   3 .ARM.extab    00000000  08000d70  08000d70  0000205c  2**0
-                  CONTENTS
+                  CONTENTS, READONLY
   4 .ARM          00000000  08000d70  08000d70  0000205c  2**0
-                  CONTENTS
+                  CONTENTS, READONLY
   5 .preinit_array 00000000  08000d70  08000d70  0000205c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   6 .init_array   00000004  08000d70  08000d70  00001d70  2**2
@@ -35,17 +35,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_rnglists 000000be  00000000  00000000  00002d78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00002b78  00000000  00000000  00002e36  2**0
+ 16 .debug_macro  00002be0  00000000  00000000  00002e36  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000011cf  00000000  00000000  000059ae  2**0
+ 17 .debug_line   000011e2  00000000  00000000  00005a16  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00009783  00000000  00000000  00006b7d  2**0
+ 18 .debug_str    000098ae  00000000  00000000  00006bf8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  00010300  2**0
+ 19 .comment      00000043  00000000  00000000  000104a6  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000009d0  00000000  00000000  00010344  2**2
+ 20 .debug_frame  000009d0  00000000  00000000  000104ec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000069  00000000  00000000  00010d14  2**0
+ 21 .debug_line_str 00000069  00000000  00000000  00010ebc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -87,7 +87,7 @@ int main(void)
 {
  8000204:	b580      	push	{r7, lr}
  8000206:	af00      	add	r7, sp, #0
-    printf("Hello wolrd \n");
+    printf("Hello rahul \n");
  8000208:	4802      	ldr	r0, [pc, #8]	@ (8000214 <main+0x10>)
  800020a:	f000 fa0d 	bl	8000628 <puts>
 	for(;;);
@@ -1346,9 +1346,9 @@ Infinite_Loop:
  8000b24:	291d      	cmp	r1, #29
  8000b26:	d82b      	bhi.n	8000b80 <__sflush_r+0xb0>
  8000b28:	4a28      	ldr	r2, [pc, #160]	@ (8000bcc <__sflush_r+0xfc>)
- 8000b2a:	410a      	asrs	r2, r1
+ 8000b2a:	40ca      	lsrs	r2, r1
  8000b2c:	07d6      	lsls	r6, r2, #31
- 8000b2e:	d427      	bmi.n	8000b80 <__sflush_r+0xb0>
+ 8000b2e:	d527      	bpl.n	8000b80 <__sflush_r+0xb0>
  8000b30:	2200      	movs	r2, #0
  8000b32:	6062      	str	r2, [r4, #4]
  8000b34:	04d9      	lsls	r1, r3, #19
@@ -1420,7 +1420,7 @@ Infinite_Loop:
  8000bc6:	4407      	add	r7, r0
  8000bc8:	1a36      	subs	r6, r6, r0
  8000bca:	e7e9      	b.n	8000ba0 <__sflush_r+0xd0>
- 8000bcc:	dfbffffe 	.word	0xdfbffffe
+ 8000bcc:	20400001 	.word	0x20400001
 
 08000bd0 <_fflush_r>:
  8000bd0:	b538      	push	{r3, r4, r5, lr}
