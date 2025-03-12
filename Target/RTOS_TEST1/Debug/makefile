@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := RTOS_TEST1
+BUILD_ARTIFACT_NAME := 002_RTOS_TEST1
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-RTOS_TEST1.elf \
+002_RTOS_TEST1.elf \
 
 MAP_FILES += \
-RTOS_TEST1.map \
+002_RTOS_TEST1.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-RTOS_TEST1.list \
+002_RTOS_TEST1.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: RTOS_TEST1.elf secondary-outputs
+main-build: 002_RTOS_TEST1.elf secondary-outputs
 
 # Tool invocations
-RTOS_TEST1.elf RTOS_TEST1.map: $(OBJS) $(USER_OBJS) /home/lenovo/Documents/embedded-c-practice/Target/RTOS_TEST1/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "RTOS_TEST1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-c-practice/Target/RTOS_TEST1/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_TEST1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+002_RTOS_TEST1.elf 002_RTOS_TEST1.map: $(OBJS) $(USER_OBJS) /home/lenovo/Documents/embedded-c-practice/Target/RTOS_TEST1/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "002_RTOS_TEST1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-c-practice/Target/RTOS_TEST1/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002_RTOS_TEST1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-RTOS_TEST1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "RTOS_TEST1.list"
+002_RTOS_TEST1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "002_RTOS_TEST1.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) RTOS_TEST1.elf RTOS_TEST1.list RTOS_TEST1.map default.size.stdout
+	-$(RM) 002_RTOS_TEST1.elf 002_RTOS_TEST1.list 002_RTOS_TEST1.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := TEST1_UART_hello
+BUILD_ARTIFACT_NAME := 003_TEST1_UART_hello
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-TEST1_UART_hello.elf \
+003_TEST1_UART_hello.elf \
 
 MAP_FILES += \
-TEST1_UART_hello.map \
+003_TEST1_UART_hello.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-TEST1_UART_hello.list \
+003_TEST1_UART_hello.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: TEST1_UART_hello.elf secondary-outputs
+main-build: 003_TEST1_UART_hello.elf secondary-outputs
 
 # Tool invocations
-TEST1_UART_hello.elf TEST1_UART_hello.map: $(OBJS) $(USER_OBJS) /home/lenovo/Documents/embedded-c-practice/Target/TEST1_UART_hello/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "TEST1_UART_hello.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-c-practice/Target/TEST1_UART_hello/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST1_UART_hello.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+003_TEST1_UART_hello.elf 003_TEST1_UART_hello.map: $(OBJS) $(USER_OBJS) /home/lenovo/Documents/embedded-c-practice/Target/TEST1_UART_hello/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "003_TEST1_UART_hello.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-c-practice/Target/TEST1_UART_hello/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="003_TEST1_UART_hello.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TEST1_UART_hello.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TEST1_UART_hello.list"
+003_TEST1_UART_hello.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "003_TEST1_UART_hello.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) TEST1_UART_hello.elf TEST1_UART_hello.list TEST1_UART_hello.map default.size.stdout
+	-$(RM) 003_TEST1_UART_hello.elf 003_TEST1_UART_hello.list 003_TEST1_UART_hello.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
