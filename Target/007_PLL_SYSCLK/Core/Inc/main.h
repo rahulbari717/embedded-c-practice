@@ -17,4 +17,8 @@
 #define TRUE  1
 #define FALSE 0
 
+#define SYSCLOCK_FREQ_50MHZ 50
+#define SYSCLOCK_FREQ_84MHZ 84
+#define SYSCLOCK_FREQ_120MHZ 120
+
 #endif /* INC_MAIN_H_ */

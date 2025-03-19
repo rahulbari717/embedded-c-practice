@@ -81,8 +81,6 @@ int main(void){
 	sprintf(msg,"PCLK2 : %ld\r\n", HAL_RCC_GetPCLK2Freq());
 	HAL_UART_Transmit(&huart2, (uint8_t *) msg, strlen(msg), HAL_MAX_DELAY);
 
-
-
 	while(1);
 
 	return 0;

@@ -72,6 +72,10 @@ void Error_Handler(void);
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 
+
+#define SYSCLOCK_FREQ_50MHZ 50
+#define SYSCLOCK_FREQ_84MHZ 84
+#define SYSCLOCK_FREQ_120MHZ 120
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

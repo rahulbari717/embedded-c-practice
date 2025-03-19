@@ -705,8 +705,6 @@ int main(void){
  80007c4:	4805      	ldr	r0, [pc, #20]	@ (80007dc <main+0x18c>)
  80007c6:	f001 fa67 	bl	8001c98 <HAL_UART_Transmit>
 
-
-
 	while(1);
  80007ca:	bf00      	nop
  80007cc:	e7fd      	b.n	80007ca <main+0x17a>
