@@ -956,12 +956,12 @@ LOAD /opt/st/stm32cubeide_1.18.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_line    0x00000caf      0x4b8 ./Src/sysmem.o
  .debug_line    0x00001167       0x7b ./Startup/startup_stm32f446retx.o
 
-.debug_str      0x00000000     0x98ae
- .debug_str     0x00000000     0x98ae ./Src/main.o
-                               0x7889 (size before relaxing)
- .debug_str     0x000098ae     0x9a66 ./Src/syscalls.o
- .debug_str     0x000098ae     0x7756 ./Src/sysmem.o
- .debug_str     0x000098ae       0x85 ./Startup/startup_stm32f446retx.o
+.debug_str      0x00000000     0x989c
+ .debug_str     0x00000000     0x989c ./Src/main.o
+                               0x7877 (size before relaxing)
+ .debug_str     0x0000989c     0x9a54 ./Src/syscalls.o
+ .debug_str     0x0000989c     0x7744 ./Src/sysmem.o
+ .debug_str     0x0000989c       0x85 ./Startup/startup_stm32f446retx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/main.o
