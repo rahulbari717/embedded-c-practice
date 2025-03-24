@@ -1,0 +1,244 @@
+18:22:51 **** Incremental Build of configuration Debug for project 002_Tasks_with_SeggerView ****
+make -j4 all 
+arm-none-eabi-gcc "../ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.d" -MT"ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.o"
+arm-none-eabi-gcc "../ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.d" -MT"ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.o"
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/portable/MemMang/heap_4.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/portable/MemMang/heap_4.d" -MT"ThirdParty/FreeRTOS/portable/MemMang/heap_4.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/portable/MemMang/heap_4.o"
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/port.d" -MT"ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/port.o"
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/port.c:34:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Config_FreeRTOS.c:54:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/portable/MemMang/heap_4.c:45:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.c:54:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/croutine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/croutine.d" -MT"ThirdParty/FreeRTOS/croutine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/croutine.o"
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/event_groups.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/event_groups.d" -MT"ThirdParty/FreeRTOS/event_groups.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/event_groups.o"
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/croutine.c:29:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/list.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/list.d" -MT"ThirdParty/FreeRTOS/list.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/list.o"
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/queue.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/queue.d" -MT"ThirdParty/FreeRTOS/queue.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/queue.o"
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/stream_buffer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/stream_buffer.d" -MT"ThirdParty/FreeRTOS/stream_buffer.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/stream_buffer.o"
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/event_groups.c:38:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/list.c:37:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/queue.c:37:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/stream_buffer.c:38:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/tasks.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/tasks.d" -MT"ThirdParty/FreeRTOS/tasks.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/tasks.o"
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/tasks.c:39:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+../ThirdParty/FreeRTOS/tasks.c: In function 'vTaskPrioritySet':
+../ThirdParty/FreeRTOS/tasks.c:2924:41: warning: implicit declaration of function 'prvReaddTaskToReadyList'; did you mean 'prvAddTaskToReadyList'? [-Wimplicit-function-declaration]
+ 2924 |                                         prvReaddTaskToReadyList( pxTCB );
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+      |                                         prvAddTaskToReadyList
+arm-none-eabi-gcc "../ThirdParty/FreeRTOS/timers.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/FreeRTOS/timers.d" -MT"ThirdParty/FreeRTOS/timers.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/FreeRTOS/timers.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../ThirdParty/FreeRTOS/timers.c:37:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/Config" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/SEGGER" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include" -I"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../Core/Src/main.c:24:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+In file included from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/FreeRTOSConfig.h:129,
+                 from /home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/FreeRTOS/include/FreeRTOS.h:64,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:204: warning: "traceTASK_NOTIFY_TAKE" redefined
+  204 | #define traceTASK_NOTIFY_TAKE(index)                                                 SEGGER_SYSVIEW_RecordU32x2(apiID_OFFSET + apiID_ULTASKNOTIFYTAKE, xClearCountOnExit, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:198: note: this is the location of the previous definition
+  198 | #define traceTASK_NOTIFY_TAKE(index) SEGGER_SYSVIEW_RecordU32x2(...)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:219: warning: "traceTASK_NOTIFY_WAIT" redefined
+  219 | #define traceTASK_NOTIFY_WAIT(index)                                                SEGGER_SYSVIEW_RecordU32x4(apiID_OFFSET + apiID_XTASKNOTIFYWAIT, ulBitsToClearOnEntry, ulBitsToClearOnExit, (U32)pulNotificationValue, xTicksToWait)
+      | 
+/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/ThirdParty/SEGGER/OS/SEGGER_SYSVIEW_FreeRTOS.h:201: note: this is the location of the previous definition
+  201 | #define traceTASK_NOTIFY_WAIT(index) SEGGER_SYSVIEW_RecordU32x4(...)
+      | 
+../Core/Src/stm32f4xx_hal_msp.c: In function 'HAL_MspInit':
+../Core/Src/stm32f4xx_hal_msp.c:78:3: warning: implicit declaration of function 'vInitPrioGroupValue' [-Wimplicit-function-declaration]
+   78 |   vInitPrioGroupValue();
+      |   ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "002_Tasks_with_SeggerView.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/lenovo/Documents/embedded-c-practice/RTOS/002_Tasks_with_SeggerView/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002_Tasks_with_SeggerView.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002_Tasks_with_SeggerView.elf
+ 
+arm-none-eabi-size  002_Tasks_with_SeggerView.elf 
+arm-none-eabi-objdump -h -S 002_Tasks_with_SeggerView.elf  > "002_Tasks_with_SeggerView.list"
+   text	   data	    bss	    dec	    hex	filename
+  24216	    108	 110428	 134752	  20e60	002_Tasks_with_SeggerView.elf
+Finished building: default.size.stdout
+ 
+Finished building: 002_Tasks_with_SeggerView.list
+ 
+18:23:13 **** Incremental Build of configuration Debug for project 002_Tasks_with_SeggerView ****
+make -j4 all 
+arm-none-eabi-size  002_Tasks_with_SeggerView.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24216	    108	 110428	 134752	  20e60	002_Tasks_with_SeggerView.elf
+Finished building: default.size.stdout
+ 
+18:23:14 **** Incremental Build of configuration Debug for project 002_Tasks_with_SeggerView ****
+make -j4 all 
+arm-none-eabi-size  002_Tasks_with_SeggerView.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24216	    108	 110428	 134752	  20e60	002_Tasks_with_SeggerView.elf
+Finished building: default.size.stdout
+ 
