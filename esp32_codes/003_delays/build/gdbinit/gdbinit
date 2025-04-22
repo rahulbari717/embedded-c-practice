@@ -1,0 +1,2 @@
+source /home/lenovo/Documents/embedded-c-practice/esp32_codes/003_delays/build/gdbinit/symbols
+source /home/lenovo/Documents/embedded-c-practice/esp32_codes/003_delays/build/gdbinit/connect

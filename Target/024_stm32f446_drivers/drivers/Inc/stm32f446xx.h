@@ -70,12 +70,16 @@
  #define I2C1_BASEADDR         (APB1PERIPH_BASE + 0x5400)  /*!< I2C1 Base Address */
  #define I2C2_BASEADDR         (APB1PERIPH_BASE + 0x5800)  /*!< I2C2 Base Address */
  #define I2C3_BASEADDR         (APB1PERIPH_BASE + 0x5C00)  /*!< I2C3 Base Address */
+ 
  #define SPI2_BASEADDR         (APB1PERIPH_BASE + 0x3800)  /*!< SPI2 Base Address */
  #define SPI3_BASEADDR         (APB1PERIPH_BASE + 0x3C00)  /*!< SPI3 Base Address */
+ 
  #define USART2_BASEADDR       (APB1PERIPH_BASE + 0x4400)  /*!< USART2 Base Address */
  #define USART3_BASEADDR       (APB1PERIPH_BASE + 0x4800)  /*!< USART3 Base Address */
+ 
  #define CAN1_BASEADDR         (APB1PERIPH_BASE + 0x6400)  /*!< CAN1 Base Address */
  #define CAN2_BASEADDR         (APB1PERIPH_BASE + 0x6800)  /*!< CAN2 Base Address */
+
  #define DAC_BASEADDR          (APB1PERIPH_BASE + 0x7400)  /*!< Digital to Analog Converter Base Address */
  /** @} */
 
@@ -210,9 +214,15 @@
  #define GPIOC   ((GPIO_RegDef_t *)GPIOC_BASEADDR)  /*!< GPIOC peripheral definition */
  #define GPIOD   ((GPIO_RegDef_t *)GPIOD_BASEADDR)  /*!< GPIOD peripheral definition */
  #define GPIOE   ((GPIO_RegDef_t *)GPIOE_BASEADDR)  /*!< GPIOE peripheral definition */
+ #define GPIOH   ((GPIO_RegDef_t *)GPIOH_BASEADDR)  /*!< GPIOE peripheral definition */
+
  #define RCC     ((RCC_RegDef_t *)RCC_BASEADDR)     /*!< RCC peripheral definition */
  #define EXTI    ((EXTI_RegDef_t *)EXTI_BASEADDR)   /*!< EXTI peripheral definition */
  #define SYSCFG  ((SYSCFG_RegDef_t *)SYSCFG_BASEADDR) /*!< SYSCFG peripheral definition */
+
+ #define SPI1    ((SPI_RegDef_t *)SPI1_BASEADDR)   /*!< SPI1 peripheral definition */
+ #define SPI2    ((SPI_RegDef_t *)SPI2_BASEADDR)   /*!< SPI2 peripheral definition */
+ #define SPI3    ((SPI_RegDef_t *)SPI3_BASEADDR)   /*!< SPI3 peripheral definition */
 
  /*******************************************************************************
   * 6. CLOCK ENABLE MACROS
@@ -250,7 +260,7 @@
  #define SPI1_PCLK_EN()   (RCC->APB2ENR |= (1 << 12)) /*!< Enable clock for SPI1 */
  #define SPI2_PCLK_EN()   (RCC->APB1ENR |= (1 << 14)) /*!< Enable clock for SPI2 */
  #define SPI3_PCLK_EN()   (RCC->APB1ENR |= (1 << 15)) /*!< Enable clock for SPI3 */
- #define SPI4_PCLK_EN()   (RCC->APB2ENR |= (1 << 13)) /*!< Enable clock for SPI4 */
+ // #define SPI4_PCLK_EN()   (RCC->APB2ENR |= (1 << 13)) /*!< Enable clock for SPI4 */
  /** @} */
 
  /**
@@ -347,4 +357,49 @@
   */
  #define SYSCFG_PCLK_DI() (RCC->APB2ENR &= ~(1 << 14)) /*!< Disable clock for SYSCFG */
 
- #define TIM1_PCLK_DI()   (RCC->APB2ENR &= ~(1 << 0))  /*!< Disable clock for T
+ #define TIM1_PCLK_DI()   (RCC->APB2ENR &= ~(1 << 0))  /*!< Disable clock for Tim*/
+
+
+/**
+ * Macros to reset GPIOx peripherals 
+ */
+#define GPIOA_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 0)); (RCC->AHB1RSTR &= ~(1 << 0)); } while(0)      /*!< Reset GPIOA */
+#define GPIOB_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 1)); (RCC->AHB1RSTR &= (1 << 1)); } while(0)      /*!< Reset GPIOB */
+#define GPIOC_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 2)); (RCC->AHB1RSTR &= (1 << 2)); } while(0)      /*!< Reset GPIOC */
+#define GPIOD_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 3)); (RCC->AHB1RSTR &= (1 << 3)); } while(0)      /*!< Reset GPIOD */
+#define GPIOE_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 4)); (RCC->AHB1RSTR &= (1 << 4)); } while(0)      /*!< Reset GPIOE */
+#define GPIOH_REG_RESET()      do{ (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= (1 << 7)); } while(0)      /*!< Reset GPIOH */
+
+/*
+ * IRQ Numbers of STM32F446RE MCU
+ * NOTE : IRQ numbers are different for different MCU
+*/
+#define IRQ_NO_EXTI0             6
+#define IRQ_NO_EXTI1             7
+#define IRQ_NO_EXTI2             8
+#define IRQ_NO_EXTI3             9
+#define IRQ_NO_EXTI4             10
+#define IRQ_NO_EXTI5_9           23
+#define IRQ_NO_EXTI10_15         40
+
+/*
+ * macros for all the possible priority levels
+*/
+#define NVIC_IRQ_PRI0        0
+#define NVIC_IRQ_PRI15       15
+
+
+/*
+ * some genric macros
+*/
+
+#define ENABLE                  1
+#define DISABLE                 0
+#define SET                     ENABLE
+#define RESET                   DISABLE
+#define GPIO_PIN_SET            1
+#define GPIO_PIN_RESET          0
+
+#include "stm32f446xx_gpio_driver.h"
+#endif
+

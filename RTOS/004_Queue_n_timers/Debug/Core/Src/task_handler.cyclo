@@ -1,0 +1,7 @@
+../Core/Src/task_handler.c:17:6:menu_task	6
+../Core/Src/task_handler.c:72:6:led_task	1
+../Core/Src/task_handler.c:79:6:rtc_task	1
+../Core/Src/task_handler.c:86:6:print_task	1
+../Core/Src/task_handler.c:93:6:cmd_task	2
+../Core/Src/task_handler.c:108:6:process_command	5
+../Core/Src/task_handler.c:135:5:extract_command	4

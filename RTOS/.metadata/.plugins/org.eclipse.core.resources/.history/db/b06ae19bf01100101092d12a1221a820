@@ -1,0 +1,131 @@
+/*
+ * task_handler.c
+ *
+ *  Created on: Apr 5, 2025
+ *      Author: Rahul Bari
+ */
+
+#include "main.h"
+
+int extract_command(command_t *cmd);
+void process_command(command_t *cmd);
+extern QueueHandle_t q_cmd;
+
+
+void menu_task(void *param)
+{
+	const char* msg_menu =  "========================================\n"
+							"|				Menu					|\n"
+							"========================================\n"
+							"		LED effect 				--->	0\n"
+							"		Date and Time 			--->	1\n"
+							"		Exit 					--->	2\n"
+							"		Enter your choice here 	:		";
+
+
+	while(1){
+		xQueueSend(q_print, &msg_menu, portMAX_DELAY);
+	}
+}
+
+void led_task(void *param)
+{
+	while(1){
+
+	}
+}
+
+void rtc_task(void *param)
+{
+	while(1){
+
+	}
+}
+
+void print_task(void *param)
+{
+	while(1){
+
+	}
+}
+
+void cmd_task(void *param)
+{
+	BaseType_t ret;
+	command_t cmd;
+
+	while(1){
+		/* Implement notify wait */
+		ret = xTaskNotifyWait(0, 0, NULL, portMAX_DELAY);
+		if(ret == pdTRUE){
+			/* process the user data (commnad) stored in input data queue */
+			process_command(&cmd);
+		}
+	}
+}
+
+void process_command(command_t *cmd)
+{
+	extract_command(cmd);
+
+	switch(curr_state)
+	{
+		case sMainMenu :
+			/* Notify menu task with command */
+			xTaskNotify(handle_menu_task, (uint32_t) cmd, eSetValueWithOverwrite);
+		break;
+
+		case sLedEffect :
+			/* Notify Led task with command */
+			xTaskNotify(handle_led_task, (uint32_t) cmd, eSetValueWithOverwrite);
+		break;
+
+		case sRtcMenu :
+		case sRtcTimeConfig :
+		case sRtcDateConfig :
+		case sRtcReport :
+			xTaskNotify(handle_rtc_task, (uint32_t) cmd, eSetValueWithOverwrite);
+		break;
+
+	}
+
+}
+
+int extract_command(command_t *cmd)
+{
+	uint8_t item;
+	BaseType_t status;
+
+	status = uxQueueMessagesWaiting(q_cmd);
+	if(!status) return -1;
+	uint8_t i = 0;
+
+	do
+	{
+		status = xQueueReceive(q_cmd, &item, 0);
+		if(status == pdTRUE) cmd -> payload[i++] = item;
+	} while(item != '\n');
+
+	cmd -> payload[i-1] = '\0';
+	cmd -> len = i-1; /* save length of the command excluding null char */
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+!SESSION 2025-04-15 12:20:21.796 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-15 12:20:58.791
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-15 12:20:58.793
+!MESSAGE Log4j2 initialized with config file /home/lenovo/Documents/embedded-c-practice/test/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-15 12:21:05.768
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-04-15 12:25:01.020
+!MESSAGE Indexed 'test1' (20 sources, 76 headers) in 8.22 sec: 4,338 declarations; 23,021 references; 1 unresolved inclusions; 619 syntax errors; 242 unresolved names (0.88%)
+!SESSION 2025-04-15 12:43:24.164 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-15 12:43:48.064
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-15 12:43:48.069
+!MESSAGE Log4j2 initialized with config file /home/lenovo/Documents/embedded-c-practice/test/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-15 12:43:58.165
+!MESSAGE Started RMI Server, listening on port 41337
