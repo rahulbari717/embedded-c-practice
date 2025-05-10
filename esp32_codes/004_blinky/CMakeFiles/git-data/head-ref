@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 67cf9498cee1c6b64227cf16ff9653ac6798569a rahulbari <rahulbari717@gmail.com> 1741068146 +0530	clone: from https://github.com/rahulbari717/embedded-c-practice.git
+67cf9498cee1c6b64227cf16ff9653ac6798569a a2cb769b3abf7a55545f1ae5c0412caa3b2072c7 rahulbari <rahulbari717@gmail.com> 1741075821 +0530	commit: Initial commit
+a2cb769b3abf7a55545f1ae5c0412caa3b2072c7 f598660cfb77f62546fb8d601202d89687ed3059 rahulbari <rahulbari717@gmail.com> 1741247258 +0530	commit: Initial commit
+f598660cfb77f62546fb8d601202d89687ed3059 ca0bced52627d77c692f72194cbdbbe57a3b3b91 rahulbari <rahulbari717@gmail.com> 1741329026 +0530	commit: Added .gitignore to ignore metadata files
+ca0bced52627d77c692f72194cbdbbe57a3b3b91 f9643af3118aead37c6ecb6d64ad6604f8decc66 rahulbari <rahulbari717@gmail.com> 1741329085 +0530	commit: refernce documents
+f9643af3118aead37c6ecb6d64ad6604f8decc66 630b54f2fe355853b00df58759048560defaaa10 rahulbari <rahulbari717@gmail.com> 1741674901 +0530	commit: new code of struct and union
+630b54f2fe355853b00df58759048560defaaa10 550d3a1bac0130c67ad7573f214bf13a35af7968 rahulbari <rahulbari717@gmail.com> 1741780530 +0530	commit: new coded added UART
+550d3a1bac0130c67ad7573f214bf13a35af7968 38a6efa9842cd7ddf9ac6dd7b3e5f5fa44b02cb6 rahulbari <rahulbari717@gmail.com> 1741791540 +0530	commit: HSE system clock code added
+38a6efa9842cd7ddf9ac6dd7b3e5f5fa44b02cb6 6b533a20953bef22f885af11078926f5b52bb189 rahulbari <rahulbari717@gmail.com> 1742359210 +0530	commit: PLL, timers are added...
+6b533a20953bef22f885af11078926f5b52bb189 fe2a1cd12c326fca053c333878df53be61d11427 rahulbari <rahulbari717@gmail.com> 1742394993 +0530	commit: Added Timer2, PWM, and LED control functionality
+fe2a1cd12c326fca053c333878df53be61d11427 232cf0e69476453e7439a64e54d8d1dd12faea17 rahulbari <rahulbari717@gmail.com> 1742790198 +0530	commit: RTOS added
+232cf0e69476453e7439a64e54d8d1dd12faea17 c9c566535e99b10585a71dc24630bd37b9286e96 rahulbari <rahulbari717@gmail.com> 1742828416 +0530	commit: DMA parts is added ...
+c9c566535e99b10585a71dc24630bd37b9286e96 967edfd2c874a49a2c58b8d18f4c58cb7f8833aa rahulbari <rahulbari717@gmail.com> 1743083930 +0530	commit: RTOS..
+967edfd2c874a49a2c58b8d18f4c58cb7f8833aa 644c2d20462db4eaa9826098b9aa5253ffd744c4 rahulbari <rahulbari717@gmail.com> 1743508313 +0530	commit: rename some files...
+644c2d20462db4eaa9826098b9aa5253ffd744c4 5b7c9306b23d62904d91b2595e7f947b097af64a rahulbari <rahulbari717@gmail.com> 1745299112 +0530	commit: some esp32 codes added...
