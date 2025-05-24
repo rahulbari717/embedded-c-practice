@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "blinky",
-    "project_version":    "5b7c930",
+    "project_version":    "7eca3c3-dirty",
     "project_path":       "/home/lenovo/Documents/embedded-c-practice/esp32_codes/004_blinky",
     "idf_path":           "/home/lenovo/esp/esp-idf",
     "build_dir":          "/home/lenovo/Documents/embedded-c-practice/esp32_codes/004_blinky/build",
