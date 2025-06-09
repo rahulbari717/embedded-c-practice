@@ -1,3 +1,0 @@
-../Core/Src/it.c:17:6:SysTick_Handler	1
-../Core/Src/it.c:26:6:TIM6_DAC_IRQHandler	1
-../Core/Src/it.c:36:6:USART2_IRQHandler	1

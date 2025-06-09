@@ -1,2 +1,0 @@
-../drivers/Src/stm32f446xx_spi_driver.c:18:6:SPI_PeriClockControl	16	static
-../drivers/Src/stm32f446xx_spi_driver.c:42:6:SPI_Init	16	static

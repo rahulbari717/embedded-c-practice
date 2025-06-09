@@ -1,1 +1,28 @@
-Target/.metadata/
+# STM32CubeIDE and Eclipse files/folders anywhere
+**/.metadata/
+**/.settings/
+**/.project
+**/.cproject
+**/*.launch
+**/*.mxproject
+**/*.mxlaunch
+
+# Build artifacts
+build/
+Debug/
+Release/
+*.o
+*.d
+*.a
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+
+# Logs and editor backups
+*.log
+*~
+*.swp
+*.swo
+

@@ -1,2 +1,0 @@
-source /home/lenovo/Documents/embedded-c-practice/esp32_codes/001_hello_world/build/bootloader/gdbinit/symbols
-source /home/lenovo/Documents/embedded-c-practice/esp32_codes/001_hello_world/build/bootloader/gdbinit/connect
