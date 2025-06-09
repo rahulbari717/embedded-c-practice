@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;003LED_Pin_read/002LED_ON.launch&apos; to &apos;003LED_ON_Pin.launch&apos;" description="Rename resource &apos;002LED_ON.launch&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="002LED_ON.launch" name="003LED_ON_Pin.launch" stamp="1744201902790" updateReferences="true"/>
-</session>

@@ -13,7 +13,6 @@ void delay(volatile uint32_t time)
 }
 
 int main(void)
-{
     // Pointer initialization for register access using structs
     RCC_AHB1ENR_t volatile *const pClkCtrlReg = ADDR_REG_AHB1ENR;
     GPIOx_MODE_t volatile *const pPortAModeReg = ADDR_REG_GPIOA_MODE;
