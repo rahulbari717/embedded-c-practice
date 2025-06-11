@@ -162,7 +162,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
         // 2. Configure the GPIO port selection in SYSCFG_EXTICR
         uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 4;
         uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 4;
-       //  uint8_t portcode = GPIO_BASEADDR_TO_CODE(pGPIOHandle->pGPIOx);
+       uint8_t portcode = GPIO_BASEADDR_TO_CODE(pGPIOHandle->pGPIOx);
         SYSCFG_PCLK_EN(); // Enable SYSCFG clock
         SYSCFG->EXTICR[temp1] = portcode << (temp2 * 4);
 
@@ -358,55 +358,59 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 }
 
 /*
- * IRQ Configuration and ISR handling
- */
+* IRQ Configuration and ISR handling
+*/
 
 /******************************************************************************
- * @fn                   - GPIO_IRQInterruptConfig
- *
- * @brief                - This function configures the interrupt for a given IRQ number.
- *
- * @param[in] IRQNumber  - The IRQ number of the peripheral.
- * @param[in] EnorDi     - ENABLE or DISABLE macro (1 to enable, 0 to disable).
- *
- * @return               - None
- *
- * @note                 - This enables/disables the global interrupt in NVIC.
- *****************************************************************************/
-//void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
-//{
-//    if (EnorDi == ENABLE)
-//    {
-//        if (IRQNumber <= 31)
-//        {
-//            *NVIC_ISER0 |= (1 << IRQNumber);
-//        }
-//        else if (IRQNumber > 31 && IRQNumber < 64)
-//        {
-//            *NVIC_ISER1 |= (1 << (IRQNumber % 32));
-//        }
-//        else if (IRQNumber >= 64 && IRQNumber < 96)
-//        {
-//            *NVIC_ISER2 |= (1 << (IRQNumber % 64));
-//        }
-//    }
-//    else
-//    {
-//        if (IRQNumber <= 31)
-//        {
-//            *NVIC_ICER0 |= (1 << IRQNumber);
-//        }
-//        else if (IRQNumber > 31 && IRQNumber < 64)
-//        {
-//            *NVIC_ICER1 |= (1 << (IRQNumber % 32));
-//        }
-//        else if (IRQNumber >= 64 && IRQNumber < 96)
-//        {
-//            *NVIC_ICER2 |= (1 << (IRQNumber % 64));
-//        }
-//    }
-//}
-//
+* @fn - GPIO_IRQInterruptConfig
+*
+* @brief - This function configures the interrupt for a given IRQ number.
+*
+* @param[in] IRQNumber - The IRQ number of the peripheral.
+
+* @param[in] EnorDi - ENABLE or DISABLE macro (1 to enable, 0 to disable).
+*
+* @return - None
+*
+* @note - This enables/disables the global interrupt in NVIC and sets priority.
+******************************************************************************/
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber,  uint8_t EnorDi)
+{
+    if (EnorDi == ENABLE)
+    {
+
+        // Enable the interrupt
+        if (IRQNumber <= 31)
+        {
+            NVIC_ISER0 |= (1 << IRQNumber);
+        }
+        else if (IRQNumber > 31 && IRQNumber < 64)
+        {
+            NVIC_ISER1 |= (1 << (IRQNumber % 32));
+        }
+        else if (IRQNumber >= 64 && IRQNumber < 96)
+        {
+            NVIC_ISER2 |= (1 << (IRQNumber % 64));
+        }
+    }
+    else
+    {
+        // Disable the interrupt
+        if (IRQNumber <= 31)
+        {
+            NVIC_ICER0 |= (1 << IRQNumber);
+        }
+        else if (IRQNumber > 31 && IRQNumber < 64)
+        {
+            NVIC_ICER1 |= (1 << (IRQNumber % 32));
+        }
+        else if (IRQNumber >= 64 && IRQNumber < 96)
+        {
+            NVIC_ICER2 |= (1 << (IRQNumber % 64));
+        }
+    }
+}
+
 ///******************************************************************************
 // * @fn                   - GPIO_IRQPriorityConfig
 // *
@@ -419,21 +423,21 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 // *
 // * @note                 - Lower numerical value means higher priority.
 // *****************************************************************************/
-//void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
-//{
-//    // Find out the IPR register
-//    uint8_t iprx = IRQNumber / 4;
-//    uint8_t iprx_section = IRQNumber % 4;
-//
-//    // Calculate the shift amount (only upper 4 bits are implemented in STM32F4)
-//    uint8_t shift_amount = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
-//
-//    // Clear the existing priority
-//    *(NVIC_PR_BASE_ADDR + iprx) &= ~(0xF << shift_amount);
-//    // Set the new priority
-//    *(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_amount);
-//}
-//
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
+{
+    // Find out the IPR register
+    uint8_t iprx = IRQNumber / 4;
+    uint8_t iprx_section = IRQNumber % 4;
+
+    // Calculate the shift amount (only upper 4 bits are implemented in STM32F4)
+    uint8_t shift_amount = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
+
+    // Clear the existing priority
+    *(NVIC_PR_BASE_ADDR + iprx) &= ~(0xF << shift_amount);
+    // Set the new priority
+    *(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_amount);
+}
+
 ///******************************************************************************
 // * @fn                   - GPIO_IRQHandling
 // *
@@ -446,12 +450,12 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 // *
 // * @note                 - This function should be called from the specific EXTIx_IRQHandler.
 // *****************************************************************************/
-//void GPIO_IRQHandling(uint8_t PinNumber)
-//{
-//    // Clear the EXTI PR register corresponding to the pin number
-//    if (EXTI->PR & (1 << PinNumber))
-//    {
-//        // Clear by writing 1 to the bit
-//        EXTI->PR |= (1 << PinNumber);
-//    }
-//}
+void GPIO_IRQHandling(uint8_t PinNumber)
+{
+    // Clear the EXTI PR register corresponding to the pin number
+    if (EXTI->PR & (1 << PinNumber))
+    {
+        // Clear by writing 1 to the bit
+        EXTI->PR |= (1 << PinNumber);
+    }
+}

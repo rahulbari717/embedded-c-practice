@@ -11,6 +11,74 @@
 #include <stdint.h>
 
 /*
+ * START : Processor Specific Details
+ * ARM Cortex Mx Processor NVIC ISERx register addresses
+ */
+
+/* NVIC Interrupt Set-Enable Registers */
+#define NVIC_ISER0          (*(volatile uint32_t*)0xE000E100U)
+#define NVIC_ISER1          (*(volatile uint32_t*)0xE000E104U)
+#define NVIC_ISER2          (*(volatile uint32_t*)0xE000E108U)
+#define NVIC_ISER3          (*(volatile uint32_t*)0xE000E10CU)
+#define NVIC_ISER4          (*(volatile uint32_t*)0xE000E110U)
+#define NVIC_ISER5          (*(volatile uint32_t*)0xE000E114U)
+#define NVIC_ISER6          (*(volatile uint32_t*)0xE000E118U)
+#define NVIC_ISER7          (*(volatile uint32_t*)0xE000E11CU)
+
+/* NVIC Interrupt Clear-Enable Registers */
+#define NVIC_ICER0          (*(volatile uint32_t*)0xE000E180U)
+#define NVIC_ICER1          (*(volatile uint32_t*)0xE000E184U)
+#define NVIC_ICER2          (*(volatile uint32_t*)0xE000E188U)
+#define NVIC_ICER3          (*(volatile uint32_t*)0xE000E18CU)
+#define NVIC_ICER4          (*(volatile uint32_t*)0xE000E190U)
+#define NVIC_ICER5          (*(volatile uint32_t*)0xE000E194U)
+#define NVIC_ICER6          (*(volatile uint32_t*)0xE000E198U)
+#define NVIC_ICER7          (*(volatile uint32_t*)0xE000E19CU)
+
+/* NVIC Interrupt Set-Pending Registers */
+#define NVIC_ISPR0          (*(volatile uint32_t*)0xE000E200U)
+#define NVIC_ISPR1          (*(volatile uint32_t*)0xE000E204U)
+#define NVIC_ISPR2          (*(volatile uint32_t*)0xE000E208U)
+#define NVIC_ISPR3          (*(volatile uint32_t*)0xE000E20CU)
+#define NVIC_ISPR4          (*(volatile uint32_t*)0xE000E210U)
+#define NVIC_ISPR5          (*(volatile uint32_t*)0xE000E214U)
+#define NVIC_ISPR6          (*(volatile uint32_t*)0xE000E218U)
+#define NVIC_ISPR7          (*(volatile uint32_t*)0xE000E21CU)
+
+/* NVIC Interrupt Clear-Pending Registers */
+#define NVIC_ICPR0          (*(volatile uint32_t*)0xE000E280U)
+#define NVIC_ICPR1          (*(volatile uint32_t*)0xE000E284U)
+#define NVIC_ICPR2          (*(volatile uint32_t*)0xE000E288U)
+#define NVIC_ICPR3          (*(volatile uint32_t*)0xE000E28CU)
+#define NVIC_ICPR4          (*(volatile uint32_t*)0xE000E290U)
+#define NVIC_ICPR5          (*(volatile uint32_t*)0xE000E294U)
+#define NVIC_ICPR6          (*(volatile uint32_t*)0xE000E298U)
+#define NVIC_ICPR7          (*(volatile uint32_t*)0xE000E29CU)
+
+/* NVIC Interrupt Priority Registers Base Address */
+#define NVIC_IPR_BASE         (0xE000E400U)
+#define NVIC_IPR(n)           (*(volatile uint8_t*)(NVIC_IPR_BASE + (n)))
+
+/* ADDED: Define NVIC_PR_BASE_ADDR for your function compatibility */
+#define NVIC_PR_BASE_ADDR     ((volatile uint32_t*)0xE000E400U)
+
+
+#define NO_PR_BITS_IMPLEMENTED			(4)
+
+/* Helper macros for interrupt control */
+#define NVIC_ENABLE_IRQ(irq)    (NVIC_ISER0 |= (1U << (irq)))
+#define NVIC_DISABLE_IRQ(irq)   (NVIC_ICER0 |= (1U << (irq)))
+#define NVIC_SET_PENDING(irq)   (NVIC_ISPR0 |= (1U << (irq)))
+#define NVIC_CLEAR_PENDING(irq) (NVIC_ICPR0 |= (1U << (irq)))
+
+/* For interrupts 32-63, use ISER1, etc. */
+#define NVIC_ENABLE_IRQ_EXT(irq)  do { \
+    if ((irq) < 32) NVIC_ISER0 |= (1U << (irq)); \
+    else if ((irq) < 64) NVIC_ISER1 |= (1U << ((irq) - 32)); \
+    else if ((irq) < 96) NVIC_ISER2 |= (1U << ((irq) - 64)); \
+} while(0)
+
+/*
  * Base addresses of Flash and SRAM memories
  */
 #define FLASH_BASEADDR                      			(0x08000000U)       						/* Flash memory base address */
@@ -157,13 +225,11 @@ typedef struct
 	volatile uint32_t MEMRMP;
 	volatile uint32_t PMC;
 	volatile uint32_t EXTICR[4];
-	volatile uint32_t RESERVED[2];
+	volatile uint32_t RESERVED1[2];
 	volatile uint32_t CMPCR;
-	volatile uint32_t RESERVED[2];
+	volatile uint32_t RESERVED2[2];
 	volatile uint32_t CFGR;
 }SYSCFG_RegDef_t;
-
-
 
 /*
  * Peripheral definitions (Peripheral base addresses typecasted to xxx_RegDef_t)
@@ -181,6 +247,9 @@ typedef struct
 #define RCC                                 								((RCC_RegDef_t*)RCC_BASEADDR)       /* RCC register pointer */
 
 #define EXTI																((EXTI_RegDef_t*)EXTI_BASEADDR)
+
+#define SYSCFG															((SYSCFG_RegDef_t*)SYSCFG_BASEADDR)
+
 /*
  * Clock Enable Macros for GPIOx peripherals
  * These macros enable clocks by setting corresponding bits in RCC_AHB1ENR
@@ -222,6 +291,164 @@ typedef struct
 #define GPIOF_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 5)); (RCC->AHB1RSTR &= ~(1 << 5)); }while(0)  /* Reset GPIOF peripheral */
 #define GPIOG_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 6)); (RCC->AHB1RSTR &= ~(1 << 6)); }while(0)  /* Reset GPIOG peripheral */
 #define GPIOH_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= ~(1 << 7)); }while(0)  /* Reset GPIOH peripheral */
+
+/*
+ *  returns port code for given GPIOx base address
+ *  this macros returns a code (between 0 to 7) for a given GPIO base address (x)
+ * */
+#define GPIO_BASEADDR_TO_CODE(x)    	(	 (x == GPIOA) ? 0 :\
+																			 (x == GPIOB) ? 1 :\
+																			 (x == GPIOC) ? 2 :\
+																			 (x == GPIOD) ? 3 :\
+																			 (x == GPIOE) ? 4 :\
+																			 (x == GPIOF) ? 5 :\
+																			 (x == GPIOG) ? 6 :\
+																			 (x == GPIOH) ? 7 : 0)
+
+/*
+ * IRQ no. of STM32F446RE MCU
+ * NOTE: update these macros with valid values according to your MCU
+ */
+
+/* IRQ Numbers for EXTI Lines */
+#define IRQ_NO_EXTI0                6
+#define IRQ_NO_EXTI1                7
+#define IRQ_NO_EXTI2                8
+#define IRQ_NO_EXTI3                9
+#define IRQ_NO_EXTI4                10
+#define IRQ_NO_EXTI9_5              23
+#define IRQ_NO_EXTI15_10            40
+
+// NVIC Interrupt Priority Levels for STM32F446RE
+#define NVIC_IRQ_PRI0              0   // Highest priority
+#define NVIC_IRQ_PRI1              1
+#define NVIC_IRQ_PRI2              2
+#define NVIC_IRQ_PRI3              3
+#define NVIC_IRQ_PRI4              4
+#define NVIC_IRQ_PRI5              5
+#define NVIC_IRQ_PRI6              6
+#define NVIC_IRQ_PRI7              7
+#define NVIC_IRQ_PRI8              8
+#define NVIC_IRQ_PRI9              9
+#define NVIC_IRQ_PRI10             10
+#define NVIC_IRQ_PRI11             11
+#define NVIC_IRQ_PRI12             12
+#define NVIC_IRQ_PRI13             13
+#define NVIC_IRQ_PRI14             14
+#define NVIC_IRQ_PRI15             15  // Lowest priority
+
+
+/* IRQ Numbers for SPI */
+#define IRQ_NO_SPI1                 35
+#define IRQ_NO_SPI2                 36
+#define IRQ_NO_SPI3                 51
+#define IRQ_NO_SPI4                 84
+
+/* IRQ Numbers for I2C */
+#define IRQ_NO_I2C1_EV              31
+#define IRQ_NO_I2C1_ER              32
+#define IRQ_NO_I2C2_EV              33
+#define IRQ_NO_I2C2_ER              34
+#define IRQ_NO_I2C3_EV              72
+#define IRQ_NO_I2C3_ER              73
+
+/* IRQ Numbers for UART/USART */
+#define IRQ_NO_USART1               37
+#define IRQ_NO_USART2               38
+#define IRQ_NO_USART3               39
+#define IRQ_NO_UART4                52
+#define IRQ_NO_UART5                53
+#define IRQ_NO_USART6               71
+
+/* IRQ Numbers for Timers */
+#define IRQ_NO_TIM1_BRK_TIM9        24
+#define IRQ_NO_TIM1_UP_TIM10        25
+#define IRQ_NO_TIM1_TRG_COM_TIM11   26
+#define IRQ_NO_TIM1_CC              27
+#define IRQ_NO_TIM2                 28
+#define IRQ_NO_TIM3                 29
+#define IRQ_NO_TIM4                 30
+#define IRQ_NO_TIM5                 50
+#define IRQ_NO_TIM6_DAC             54
+#define IRQ_NO_TIM7                 55
+#define IRQ_NO_TIM8_BRK_TIM12       43
+#define IRQ_NO_TIM8_UP_TIM13        44
+#define IRQ_NO_TIM8_TRG_COM_TIM14   45
+#define IRQ_NO_TIM8_CC              46
+
+/* IRQ Numbers for ADC */
+#define IRQ_NO_ADC                  18
+
+/* IRQ Numbers for DMA */
+#define IRQ_NO_DMA1_STREAM0         11
+#define IRQ_NO_DMA1_STREAM1         12
+#define IRQ_NO_DMA1_STREAM2         13
+#define IRQ_NO_DMA1_STREAM3         14
+#define IRQ_NO_DMA1_STREAM4         15
+#define IRQ_NO_DMA1_STREAM5         16
+#define IRQ_NO_DMA1_STREAM6         17
+#define IRQ_NO_DMA1_STREAM7         47
+
+#define IRQ_NO_DMA2_STREAM0         56
+#define IRQ_NO_DMA2_STREAM1         57
+#define IRQ_NO_DMA2_STREAM2         58
+#define IRQ_NO_DMA2_STREAM3         59
+#define IRQ_NO_DMA2_STREAM4         60
+#define IRQ_NO_DMA2_STREAM5         68
+#define IRQ_NO_DMA2_STREAM6         69
+#define IRQ_NO_DMA2_STREAM7         70
+
+/* IRQ Numbers for CAN */
+#define IRQ_NO_CAN1_TX              19
+#define IRQ_NO_CAN1_RX0             20
+#define IRQ_NO_CAN1_RX1             21
+#define IRQ_NO_CAN1_SCE             22
+#define IRQ_NO_CAN2_TX              63
+#define IRQ_NO_CAN2_RX0             64
+#define IRQ_NO_CAN2_RX1             65
+#define IRQ_NO_CAN2_SCE             66
+
+/* IRQ Numbers for USB */
+#define IRQ_NO_OTG_FS               67
+#define IRQ_NO_OTG_HS_EP1_OUT       74
+#define IRQ_NO_OTG_HS_EP1_IN        75
+#define IRQ_NO_OTG_HS_WKUP          76
+#define IRQ_NO_OTG_HS               77
+
+/* IRQ Numbers for RTC */
+#define IRQ_NO_RTC_ALARM            41
+#define IRQ_NO_RTC_WKUP             3
+
+/* IRQ Numbers for System */
+#define IRQ_NO_WWDG                 0
+#define IRQ_NO_PVD                  1
+#define IRQ_NO_TAMP_STAMP           2
+#define IRQ_NO_FLASH                4
+#define IRQ_NO_RCC                  5
+
+/* IRQ Numbers for FPU */
+#define IRQ_NO_FPU                  81
+
+/* IRQ Numbers for DCMI */
+#define IRQ_NO_DCMI                 78
+
+/* IRQ Numbers for FMPI2C1 (specific to STM32F446) */
+#define IRQ_NO_FMPI2C1_EV           95
+#define IRQ_NO_FMPI2C1_ER           96
+
+/* IRQ Numbers for QUADSPI (specific to STM32F446) */
+#define IRQ_NO_QUADSPI              91
+
+/* IRQ Numbers for CEC (specific to STM32F446) */
+#define IRQ_NO_CEC                  94
+
+/* IRQ Numbers for SAI (specific to STM32F446) */
+#define IRQ_NO_SAI1                 87
+#define IRQ_NO_SAI2                 91
+
+/* IRQ Numbers for SPDIF-RX (specific to STM32F446) */
+#define IRQ_NO_SPDIF_RX             97
+
 
 /*
  * Some generic macros for common values
