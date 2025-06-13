@@ -133,8 +133,13 @@
  * APB2 peripherals operate at higher frequencies
  */
 #define EXTI_BASEADDR                      	 			(APB2PERIPH_BASEADDR + 0x3C00)  			/* EXTI (External Interrupt) base address */
-#define SPI1_BASEADDR                       				(APB2PERIPH_BASEADDR + 0x3000)  			/* SPI1 base address */
+
+#define SPI1_BASEADDR                       				(APB2PERIPH_BASEADDR + 0x3000)/* SPI1 base address */
+#define SPI4_BASEADDR                       			(APB2PERIPH_BASEADDR + 0x3400)  			/* SPI4 base address */
+
+
 #define SYSCFG_BASEADDR                     		(APB2PERIPH_BASEADDR + 0x3800)  			/* SYSCFG (System Configuration) base address */
+
 #define USART1_BASEADDR                     		(APB2PERIPH_BASEADDR + 0x1000)  			/* USART1 base address */
 #define USART6_BASEADDR                     		(APB2PERIPH_BASEADDR + 0x1400)  			/* USART6 base address */
 
@@ -217,6 +222,23 @@ typedef struct
 }EXTI_RegDef_t;
 
 /*
+ * Peripheral register definition structure for SPI
+ */
+typedef struct
+{
+	volatile uint32_t CR1;       /*!< SPI control register 1          - Address offset: 0x00 */
+	volatile uint32_t CR2;       /*!< SPI control register 2          - Address offset: 0x04 */
+	volatile uint32_t SR;        /*!< SPI status register             - Address offset: 0x08 */
+	volatile uint32_t DR;        /*!< SPI data register               - Address offset: 0x0C */
+	volatile uint32_t CRCPR;     /*!< SPI CRC polynomial register     - Address offset: 0x10 */
+	volatile uint32_t RXCRCR;    /*!< SPI RX CRC register             - Address offset: 0x14 */
+	volatile uint32_t TXCRCR;    /*!< SPI TX CRC register             - Address offset: 0x18 */
+	volatile uint32_t I2SCFGR;   /*!< SPI_I2S configuration register  - Address offset: 0x1C */
+	volatile uint32_t I2SPR;     /*!< SPI_I2S prescaler register      - Address offset: 0x20 */
+} SPI_RegDef_t;
+
+
+/*
  * Peripheral register definition structures for SYSCFG
  */
 
@@ -250,6 +272,14 @@ typedef struct
 
 #define SYSCFG															((SYSCFG_RegDef_t*)SYSCFG_BASEADDR)
 
+#define SPI1                                ((SPI_RegDef_t*)SPI1_BASEADDR)      /* SPI1 register pointer */
+#define SPI2                                ((SPI_RegDef_t*)SPI2_BASEADDR)      /* SPI2 register pointer */
+#define SPI3                                ((SPI_RegDef_t*)SPI3_BASEADDR)      /* SPI3 register pointer */
+#define SPI4                                ((SPI_RegDef_t*)SPI4_BASEADDR)      /* SPI4 register pointer */
+
+
+
+
 /*
  * Clock Enable Macros for GPIOx peripherals
  * These macros enable clocks by setting corresponding bits in RCC_AHB1ENR
@@ -266,6 +296,15 @@ typedef struct
 #define SYSCFG_PCLK_EN()                     			(RCC->AHB1ENR |= (1 << 14))          /* Enable GPIOH peripheral clock */
 
 /*
+* Clock Enable Macros for SPI peripherals
+*/
+#define SPI1_PCLK_EN()                        (RCC->APB2ENR |= (1 << 12))   /* Enable SPI1 peripheral clock */
+#define SPI2_PCLK_EN()                        (RCC->APB1ENR |= (1 << 14))   /* Enable SPI2 peripheral clock */
+#define SPI3_PCLK_EN()                        (RCC->APB1ENR |= (1 << 15))   /* Enable SPI3 peripheral clock */
+#define SPI4_PCLK_EN()                        (RCC->APB2ENR |= (1 << 13))   /* Enable SPI4 peripheral clock */
+
+
+/*
  * Clock Disable Macros for GPIOx peripherals
  * These macros disable peripheral clocks by clearing corresponding bits in RCC_AHB1ENR
  */
@@ -277,6 +316,15 @@ typedef struct
 #define GPIOF_PCLK_DI()                     				(RCC->AHB1ENR &= ~(1 << 5))         /* Disable GPIOF peripheral clock */
 #define GPIOG_PCLK_DI()                     				(RCC->AHB1ENR &= ~(1 << 6))         /* Disable GPIOG peripheral clock */
 #define GPIOH_PCLK_DI()                     				(RCC->AHB1ENR &= ~(1 << 7))         /* Disable GPIOH peripheral clock */
+
+/*
+* Clock Disable Macros for SPI peripherals
+*/
+#define SPI1_PCLK_DI()                        (RCC->APB2ENR &= ~(1 << 12))   /* Disable SPI1 peripheral clock */
+#define SPI2_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 14))   /* Disable SPI2 peripheral clock */
+#define SPI3_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 15))   /* Disable SPI3 peripheral clock */
+#define SPI4_PCLK_DI()                        (RCC->APB2ENR &= ~(1 << 13))   /* Disable SPI4 peripheral clock */
+
 
 /*
  * Macros to reset GPIOx peripherals
@@ -291,6 +339,11 @@ typedef struct
 #define GPIOF_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 5)); (RCC->AHB1RSTR &= ~(1 << 5)); }while(0)  /* Reset GPIOF peripheral */
 #define GPIOG_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 6)); (RCC->AHB1RSTR &= ~(1 << 6)); }while(0)  /* Reset GPIOG peripheral */
 #define GPIOH_REG_RESET()                   do{ (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= ~(1 << 7)); }while(0)  /* Reset GPIOH peripheral */
+
+#define SPI1_REG_RESET()     do { RCC->APB2RSTR |=  (1 << 12); RCC->APB2RSTR &= ~(1 << 12); } while(0)
+#define SPI2_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 14); RCC->APB1RSTR &= ~(1 << 14); } while(0)
+#define SPI3_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while(0)
+#define SPI4_REG_RESET()     do { RCC->APB2RSTR |=  (1 << 13); RCC->APB2RSTR &= ~(1 << 13); } while(0)
 
 /*
  *  returns port code for given GPIOx base address
@@ -460,8 +513,51 @@ typedef struct
 #define RESET                               							(DISABLE)           /* Generic reset value */
 #define GPIO_PIN_SET                        					(SET)               /* GPIO pin set state */
 #define GPIO_PIN_RESET                      				(RESET)             /* GPIO pin reset state */
+#define FLAG_RESET											RESET
+#define FLAG_SET													SET
+/*
+ * Bit position definitions for SPI peripheral
+ */
+
+// SPI_CR1
+#define SPI_CR1_CPHA         0  /*!< Clock Phase */
+#define SPI_CR1_CPOL         1  /*!< Clock Polarity */
+#define SPI_CR1_MSTR         2  /*!< Master Selection */
+#define SPI_CR1_BR           3  /*!< Baud Rate Control (3 bits: [5:3]) */
+#define SPI_CR1_SPE          6  /*!< SPI Enable */
+#define SPI_CR1_LSBFIRST     7  /*!< Frame Format */
+#define SPI_CR1_SSI          8  /*!< Internal Slave Select */
+#define SPI_CR1_SSM          9  /*!< Software Slave Management */
+#define SPI_CR1_RXONLY       10 /*!< Receive Only */
+#define SPI_CR1_DFF          11 /*!< Data Frame Format */
+#define SPI_CR1_CRCNEXT      12 /*!< CRC Transfer Next */
+#define SPI_CR1_CRCEN        13 /*!< Hardware CRC Calculation Enable */
+#define SPI_CR1_BIDIOE       14 /*!< Output Enable in Bidirectional Mode */
+#define SPI_CR1_BIDIMODE     15 /*!< Bidirectional Data Mode Enable */
+
+// SPI_CR2
+#define SPI_CR2_RXDMAEN      0  /*!< Rx Buffer DMA Enable */
+#define SPI_CR2_TXDMAEN      1  /*!< Tx Buffer DMA Enable */
+#define SPI_CR2_SSOE         2  /*!< SS Output Enable */
+#define SPI_CR2_FRF          4  /*!< Frame Format */
+#define SPI_CR2_ERRIE        5  /*!< Error Interrupt Enable */
+#define SPI_CR2_RXNEIE       6  /*!< RX buffer Not Empty Interrupt Enable */
+#define SPI_CR2_TXEIE        7  /*!< Tx buffer Empty Interrupt Enable */
+
+// SPI_SR
+#define SPI_SR_RXNE          0  /*!< Receive Buffer Not Empty */
+#define SPI_SR_TXE           1  /*!< Transmit Buffer Empty */
+#define SPI_SR_CHSIDE        2  /*!< Channel Side */
+#define SPI_SR_UDR           3  /*!< Underrun Flag */
+#define SPI_SR_CRCERR        4  /*!< CRC Error Flag */
+#define SPI_SR_MODF          5  /*!< Mode Fault */
+#define SPI_SR_OVR           6  /*!< Overrun Flag */
+#define SPI_SR_BSY           7  /*!< Busy Flag */
+#define SPI_SR_FRE           8  /*!< Frame Format Error */
+
 
 
 #include "stm32f446xx_gpio_driver.h"
+#include "stm32f446xx_spi_driver.h"
 
 #endif /* INC_STM32F446XX_H_ */
