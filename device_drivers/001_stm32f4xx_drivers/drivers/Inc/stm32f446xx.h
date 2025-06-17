@@ -268,6 +268,22 @@ typedef struct
 	volatile uint32_t I2SPR;     /*!< SPI_I2S prescaler register      - Address offset: 0x20 */
 } SPI_RegDef_t;
 
+ /*
+ * Peripheral register definition structure for I2C
+ */
+typedef struct
+{
+  volatile uint32_t CR1;        /*!< I2C Control register 1         - Address offset: 0x00 */
+  volatile uint32_t CR2;        /*!< I2C Control register 2         - Address offset: 0x04 */
+  volatile uint32_t OAR1;       /*!< I2C Own address register 1     - Address offset: 0x08 */
+  volatile uint32_t OAR2;       /*!< I2C Own address register 2     - Address offset: 0x0C */
+  volatile uint32_t DR;         /*!< I2C Data register              - Address offset: 0x10 */
+  volatile uint32_t SR1;        /*!< I2C Status register 1          - Address offset: 0x14 */
+  volatile uint32_t SR2;        /*!< I2C Status register 2          - Address offset: 0x18 */
+  volatile uint32_t CCR;        /*!< I2C Clock control register     - Address offset: 0x1C */
+  volatile uint32_t TRISE;      /*!< I2C TRISE register             - Address offset: 0x20 */
+  volatile uint32_t FLTR;       /*!< I2C FLTR register              - Address offset: 0x24 */
+} I2C_RegDef_t;
 
 /**
  * @brief SYSCFG peripheral registers
@@ -308,6 +324,11 @@ typedef struct {
 #define SPI3 ((SPI_RegDef_t*)SPI3_BASEADDR) // Pointer to SPI3 registers
 #define SPI4 ((SPI_RegDef_t*)SPI4_BASEADDR) // Pointer to SPI4 registers
 
+#define I2C1 ((I2C_RegDef_t *)I2C1_BASEADDR)
+#define I2C2 ((I2C_RegDef_t *)I2C2_BASEADDR)
+#define I2C3 ((I2C_RegDef_t *)I2C3_BASEADDR)
+
+
 
 //==============================================================================
 // Clock Enable Macros for GPIOx Peripherals
@@ -334,6 +355,12 @@ typedef struct {
 #define SPI3_PCLK_EN()                        (RCC->APB1ENR |= (1 << 15))   /* Enable SPI3 peripheral clock */
 #define SPI4_PCLK_EN()                        (RCC->APB2ENR |= (1 << 13))   /* Enable SPI4 peripheral clock */
 
+/*
+* Clock Enable Macros for I2C peripherals
+*/
+#define I2C1_PCLK_EN()                        (RCC->APB1ENR |= (1 << 21))   /* Enable I2C1 peripheral clock */
+#define I2C2_PCLK_EN()                        (RCC->APB1ENR |= (1 << 22))   /* Enable I2C2 peripheral clock */
+#define I2C3_PCLK_EN()                        (RCC->APB1ENR |= (1 << 23))   /* Enable I2C3 peripheral clock */
 
 //==============================================================================
 // Clock Disable Macros for GPIOx Peripherals
@@ -358,6 +385,13 @@ typedef struct {
 #define SPI4_PCLK_DI()                        (RCC->APB2ENR &= ~(1 << 13))   /* Disable SPI4 peripheral clock */
 
 /*
+* Clock Disable Macros for I2C peripherals
+*/
+#define I2C1_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 21))   /* Disable I2C1 peripheral clock */
+#define I2C2_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 22))   /* Disable I2C2 peripheral clock */
+#define I2C3_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 23))   /* Disable I2C3 peripheral clock */
+
+/*
  * Macros to reset GPIOx peripherals
  * These macros perform a peripheral reset by toggling the reset bit in RCC_AHB1RSTR
  * The do-while(0) construct ensures the macro behaves like a function call
@@ -376,8 +410,9 @@ typedef struct {
 #define SPI3_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while(0)
 #define SPI4_REG_RESET()     do { RCC->APB2RSTR |=  (1 << 13); RCC->APB2RSTR &= ~(1 << 13); } while(0)
 
-
-
+#define I2C1_REG_RESET()       do{ (RCC->APB1RSTR |= (1 << 21)); (RCC->APB1RSTR &= ~(1 << 21)); }while(0)
+#define I2C2_REG_RESET()       do{ (RCC->APB1RSTR |= (1 << 22)); (RCC->APB1RSTR &= ~(1 << 22)); }while(0)
+#define I2C3_REG_RESET()       do{ (RCC->APB1RSTR |= (1 << 23)); (RCC->APB1RSTR &= ~(1 << 23)); }while(0)
 
 
 /**
@@ -597,9 +632,67 @@ typedef struct {
 #define SPI_SR_BSY           7  /*!< Busy Flag */
 #define SPI_SR_FRE           8  /*!< Frame Format Error */
 
+/*
+ * Bit position definitions for I2C peripheral
+ */
 
+// I2C Control Register 1 (I2C_CR1)
+#define I2C_CR1_PE           0  /*!< Peripheral Enable */
+#define I2C_CR1_SMBUS        1  /*!< SMBus Mode */
+#define I2C_CR1_SMBTYPE      3  /*!< SMBus Type */
+#define I2C_CR1_ENARP        4  /*!< ARP Enable */
+#define I2C_CR1_ENPEC        5  /*!< PEC Enable */
+#define I2C_CR1_ENGC         6  /*!< General Call Enable */
+#define I2C_CR1_NOSTRETCH    7  /*!< Clock Stretching Disable */
+#define I2C_CR1_START        8  /*!< Start Generation */
+#define I2C_CR1_STOP         9  /*!< Stop Generation */
+#define I2C_CR1_ACK         10  /*!< Acknowledge Enable */
+#define I2C_CR1_POS         11  /*!< Acknowledge/PEC Position */
+#define I2C_CR1_PEC         12  /*!< Packet Error Checking */
+#define I2C_CR1_ALERT       13  /*!< SMBus Alert */
+#define I2C_CR1_SWRST       15  /*!< Software Reset */
+
+// I2C Control Register 2 (I2C_CR2)
+#define I2C_CR2_FREQ         0  /*!< Peripheral Clock Frequency */
+#define I2C_CR2_ITERREN      8  /*!< Error Interrupt Enable */
+#define I2C_CR2_ITEVTEN      9  /*!< Event Interrupt Enable */
+#define I2C_CR2_ITBUFEN     10  /*!< Buffer Interrupt Enable */
+#define I2C_CR2_DMAEN       11  /*!< DMA Requests Enable */
+#define I2C_CR2_LAST        12  /*!< DMA Last Transfer */
+
+// I2C Status Register 1 (I2C_SR1)
+#define I2C_SR1_SB           0  /*!< Start Bit */
+#define I2C_SR1_ADDR        1  /*!< Address Sent/Matched */
+#define I2C_SR1_BTF         2  /*!< Byte Transfer Finished */
+#define I2C_SR1_ADD10       3  /*!< 10-bit Header Sent */
+#define I2C_SR1_STOPF       4  /*!< Stop Detection */
+#define I2C_SR1_RXNE        6  /*!< Data Register Not Empty */
+#define I2C_SR1_TXE         7  /*!< Data Register Empty */
+#define I2C_SR1_BERR        8  /*!< Bus Error */
+#define I2C_SR1_ARLO        9  /*!< Arbitration Lost */
+#define I2C_SR1_AF         10  /*!< Acknowledge Failure */
+#define I2C_SR1_OVR        11  /*!< Overrun/Underrun */
+#define I2C_SR1_PECERR     12  /*!< PEC Error in Reception */
+#define I2C_SR1_TIMEOUT    14  /*!< Timeout or Tlow Error */
+#define I2C_SR1_SMBALERT   15  /*!< SMBus Alert */
+ 
+// I2C Status Register 2 (I2C_SR2)
+#define I2C_SR2_MSL         0  /*!< Master/Slave */
+#define I2C_SR2_BUSY        1  /*!< Bus Busy */
+#define I2C_SR2_TRA         2  /*!< Transmitter/Receiver */
+#define I2C_SR2_GENCALL     4  /*!< General Call Address */
+#define I2C_SR2_SMBDEFAULT  5  /*!< SMBus Device Default Address */
+#define I2C_SR2_SMBHOST     6  /*!< SMBus Host Header */
+#define I2C_SR2_DUALF       7  /*!< Dual Flag */
+#define I2C_SR2_PEC         8  /*!< Packet Error Checking Register */
+
+// I2C Clock Control Register (I2C_CCR)
+#define I2C_CCR_CCR         0  /*!< Clock Control Register */
+#define I2C_CCR_DUTY       14  /*!< Fast Mode Duty Cycle */
+#define I2C_CCR_FS         15  /*!< I2C Master Mode Selection */
 
 #include "stm32f446xx_gpio_driver.h"
 #include "stm32f446xx_spi_driver.h"
+#include "stm32f446xx_i2c_driver.h"
 
 #endif /* INC_STM32F446XX_H_ */
