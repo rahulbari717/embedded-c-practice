@@ -393,17 +393,17 @@ void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
 		if(IRQNumber <= 31)
 		{
 			// Program ISER0 register
-			*NVIC_ISER0 |= (1 << IRQNumber);
+			NVIC_ISER0 |= (1 << IRQNumber);
 		}
 		else if(IRQNumber > 31 && IRQNumber < 64)
 		{
 			// Program ISER1 register
-			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
+			NVIC_ISER1 |= (1 << (IRQNumber % 32));
 		}
 		else if(IRQNumber >= 64 && IRQNumber < 96)
 		{
 			// Program ISER2 register
-			*NVIC_ISER2 |= (1 << (IRQNumber % 64));
+			NVIC_ISER2 |= (1 << (IRQNumber % 64));
 		}
 	}
 	else
@@ -411,17 +411,17 @@ void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
 		if(IRQNumber <= 31)
 		{
 			// Program ICER0 register
-			*NVIC_ICER0 |= (1 << IRQNumber);
+			NVIC_ICER0 |= (1 << IRQNumber);
 		}
 		else if(IRQNumber > 31 && IRQNumber < 64)
 		{
 			// Program ICER1 register
-			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
+			NVIC_ICER1 |= (1 << (IRQNumber % 32));
 		}
 		else if(IRQNumber >= 64 && IRQNumber < 96)
 		{
 			// Program ICER2 register
-			*NVIC_ICER2 |= (1 << (IRQNumber % 64));
+			NVIC_ICER2 |= (1 << (IRQNumber % 64));
 		}
 	}
 }
@@ -602,30 +602,7 @@ void SPI_IRQHandling(SPI_Handle_t *pHandle)
 		spi_ovr_err_interrupt_handle(pHandle);
 	}
 }
-/*********************************************************************
-* @fn      		  - SPI_PeripheralControl
-*
-* @brief             - This function enables or disables SPI peripheral
-*
-* @param[in]         - base address of the SPI peripheral
-* @param[in]         - ENABLE or DISABLE
-* @param[in]         -
-*
-* @return            - none
-*
-* @Note              - none
-*/
-void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi)
-{
-	if(EnOrDi == ENABLE)
-	{
-		pSPIx->CR1 |= (1 << SPI_CR1_SPE);
-	}
-	else
-	{
-		pSPIx->CR1 &= ~(1 << SPI_CR1_SPE);
-	}
-}
+
 /*********************************************************************
 * @fn      		  - SPI_SSOEConfig
 *

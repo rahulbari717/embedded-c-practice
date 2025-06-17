@@ -9,6 +9,9 @@
 #define INC_STM32F446XX_H_
 
 #include <stdint.h>
+#include <stddef.h>
+
+#define __weak __attribute__((weak))
 
 /*
  * START : Processor Specific Details
@@ -344,6 +347,10 @@ typedef struct
 #define SPI2_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 14); RCC->APB1RSTR &= ~(1 << 14); } while(0)
 #define SPI3_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while(0)
 #define SPI4_REG_RESET()     do { RCC->APB2RSTR |=  (1 << 13); RCC->APB2RSTR &= ~(1 << 13); } while(0)
+
+
+
+
 
 /*
  *  returns port code for given GPIOx base address
