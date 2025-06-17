@@ -111,7 +111,6 @@ typedef struct
 #define GPIO_AF14           14      /*!< GPIO Alternate function 14 */
 #define GPIO_AF15           15      /*!< GPIO Alternate function 15 */
 
-
 /*******************************************************************************
  *          APIs supported by this driver
  *          For more information about the APIs check the function definitions

@@ -1,8 +1,12 @@
 /*
  * stm32f446xx_spi_driver.h
  *
- *  Created on: Jun 13, 2025
- *      Author: Rahul B.
+ * Created on: Jun 13, 2025
+ * Author: Rahul B.
+ *
+ * STM32F446xx SPI peripheral driver header file
+ * This file contains the register definitions, configuration structures,
+ * macros, and function prototypes for SPI driver implementation.
  */
 
 #ifndef INC_STM32F446XX_SPI_DRIVER_H_
@@ -109,10 +113,11 @@ typedef struct
 #define SPI_EVENT_OVR_ERR    3
 #define SPI_EVENT_CRC_ERR    4
 
+/*******************************************************************************
+ *          APIs supported by this driver
+ *          For more information about the APIs check the function definitions
+ *******************************************************************************/
 
-/*
-* APIs supported by this driver
-*/
 /*
 * Peripheral Clock setup
 */
@@ -127,10 +132,10 @@ void SPI_DeInit(SPI_RegDef_t *pSPIx);
 */
 void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len);
 void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len);
-//
-///*
-// * Data Send and Receive with Interrupt
-// */
+
+/*
+ * Data Send and Receive with Interrupt
+ */
 uint8_t SPI_SendDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_t Len);
 uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t Len);
 
@@ -140,7 +145,7 @@ uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t
 void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
 void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
 void SPI_IRQHandling(SPI_Handle_t *pHandle);
-//
+
 /*
  * Other Peripheral Control APIs
  */
