@@ -48,29 +48,29 @@ typedef struct
  * */
 
 #define SPI_DEVICE_MODE_MASTER      1
-#define SPI_DEVICE_MODE_SLAVE          0
+#define SPI_DEVICE_MODE_SLAVE       0
 /*
 * @SPI bus configuration
 */
-#define SPI_BUS_CONFIG_FD           						1   // Full duplex
-#define SPI_BUS_CONFIG_HD           						2   // Half duplex
-#define SPI_BUS_CONFIG_SIMPLEX_RX   				3   // Simplex RX only
+#define SPI_BUS_CONFIG_FD           1   // Full duplex
+#define SPI_BUS_CONFIG_HD           2   // Half duplex
+#define SPI_BUS_CONFIG_SIMPLEX_RX   3   // Simplex RX only
 /*
 * SPI serial clock speed
 */
-#define SPI_SCLK_SPEED_DIV2         					0   // fPCLK/2
-#define SPI_SCLK_SPEED_DIV4         					1   // fPCLK/4
-#define SPI_SCLK_SPEED_DIV8         					2   // fPCLK/8
-#define SPI_SCLK_SPEED_DIV16        					3   // fPCLK/16
-#define SPI_SCLK_SPEED_DIV32        					4   // fPCLK/32
-#define SPI_SCLK_SPEED_DIV64        					5   // fPCLK/64
-#define SPI_SCLK_SPEED_DIV128      					6   // fPCLK/128
-#define SPI_SCLK_SPEED_DIV256       					7   // fPCLK/256
+#define SPI_SCLK_SPEED_DIV2         0   // fPCLK/2
+#define SPI_SCLK_SPEED_DIV4         1   // fPCLK/4
+#define SPI_SCLK_SPEED_DIV8         2   // fPCLK/8
+#define SPI_SCLK_SPEED_DIV16        3   // fPCLK/16
+#define SPI_SCLK_SPEED_DIV32        4   // fPCLK/32
+#define SPI_SCLK_SPEED_DIV64        5   // fPCLK/64
+#define SPI_SCLK_SPEED_DIV128      	6   // fPCLK/128
+#define SPI_SCLK_SPEED_DIV256       7   // fPCLK/256
 /*
 * SPI data frame format
 */
-#define SPI_DFF_8BITS               						0
-#define SPI_DFF_16BITS              						1
+#define SPI_DFF_8BITS               0
+#define SPI_DFF_16BITS              1
 /*
 * SPI clock polarity
 */
@@ -84,12 +84,12 @@ typedef struct
 /*
 * SPI software slave management
 */
-#define SPI_SSM_EN                    1   // Software slave management enabled
-#define SPI_SSM_DI               		0   // Software slave management disabled
+#define SPI_SSM_EN                  1   // Software slave management enabled
+#define SPI_SSM_DI               	0   // Software slave management disabled
 /*
 * SPI application states
 */
-#define SPI_READY                   		0
+#define SPI_READY                   0
 #define SPI_BUSY_IN_RX              1
 #define SPI_BUSY_IN_TX              2
 /*

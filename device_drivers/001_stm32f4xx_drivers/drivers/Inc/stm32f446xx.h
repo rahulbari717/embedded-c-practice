@@ -20,6 +20,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdio.h>
 
 #define __weak __attribute__((weak))
 //==============================================================================
@@ -596,14 +597,14 @@ typedef struct {
  * These provide readable names for commonly used values across various
  * peripheral configurations and operations.
  */
-#define ENABLE                              							(1)                 /* Generic enable value */
-#define DISABLE                             							(0)                 /* Generic disable value */
-#define SET                                 								(ENABLE)            /* Generic set value */
-#define RESET                               							(DISABLE)           /* Generic reset value */
-#define GPIO_PIN_SET                        					(SET)               /* GPIO pin set state */
-#define GPIO_PIN_RESET                      				(RESET)             /* GPIO pin reset state */
-#define FLAG_RESET											RESET
-#define FLAG_SET													SET
+#define ENABLE            (1)                 /* Generic enable value */
+#define DISABLE           (0)                 /* Generic disable value */
+#define SET               (ENABLE)            /* Generic set value */
+#define RESET             (DISABLE)           /* Generic reset value */
+#define GPIO_PIN_SET      (SET)               /* GPIO pin set state */
+#define GPIO_PIN_RESET    (RESET)             /* GPIO pin reset state */
+#define FLAG_RESET				RESET
+#define FLAG_SET					SET
 /*
  * Bit position definitions for SPI peripheral
  */

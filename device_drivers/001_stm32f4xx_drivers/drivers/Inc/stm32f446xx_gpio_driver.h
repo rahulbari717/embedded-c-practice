@@ -159,38 +159,10 @@ typedef struct
  * =============================================================================
  */
 
-<<<<<<< HEAD
 /*******************************************************************************
  *          APIs supported by this driver
  *          For more information about the APIs check the function definitions
  *******************************************************************************/
-=======
-/**
- * @defgroup GPIO_PIN_ALT_FUN_MODE GPIO Pin Alternate Function Modes
- * @brief GPIO pin alternate function selections
- * @details These macros define the alternate function mappings (AF0-AF15).
- *          Each alternate function connects the pin to a specific peripheral.
- *          Refer to STM32F446xx datasheet for specific AF mappings per pin.
- * @{
- */
-#define GPIO_AF0            0       /**< Alternate Function 0 - System functions */
-#define GPIO_AF1            1       /**< Alternate Function 1 - TIM1/TIM2 */
-#define GPIO_AF2            2       /**< Alternate Function 2 - TIM3/TIM4/TIM5 */
-#define GPIO_AF3            3       /**< Alternate Function 3 - TIM8/TIM9/TIM10/TIM11 */
-#define GPIO_AF4            4       /**< Alternate Function 4 - I2C1/I2C2/I2C3 */
-#define GPIO_AF5            5       /**< Alternate Function 5 - SPI1/SPI2/SPI3/SPI4 */
-#define GPIO_AF6            6       /**< Alternate Function 6 - SPI2/SPI3/SAI1 */
-#define GPIO_AF7            7       /**< Alternate Function 7 - UART/USART */
-#define GPIO_AF8            8       /**< Alternate Function 8 - UART4/UART5/USART6 */
-#define GPIO_AF9            9       /**< Alternate Function 9 - CAN1/CAN2/TIM12/TIM13/TIM14 */
-#define GPIO_AF10           10      /**< Alternate Function 10 - OTG_FS/OTG_HS */
-#define GPIO_AF11           11      /**< Alternate Function 11 - ETH */
-#define GPIO_AF12           12      /**< Alternate Function 12 - FMC/SDIO/OTG_HS */
-#define GPIO_AF13           13      /**< Alternate Function 13 - DCMI */
-#define GPIO_AF14           14      /**< Alternate Function 14 - LCD-TFT */
-#define GPIO_AF15           15      /**< Alternate Function 15 - EVENTOUT */
-/** @} */
->>>>>>> 79afe4b (Proper format and commets added to the code ...)
 
 /*
  * =============================================================================
@@ -467,84 +439,3 @@ void GPIO_IRQHandling(uint8_t PinNumber);
 /** @} */ // End of GPIO_Driver_APIs group
 
 #endif /* INC_STM32F446XX_GPIO_DRIVER_H_ */
-
-/**
- * @page gpio_usage GPIO Driver Usage Examples
- *
- * @section basic_io Basic Input/Output Operations
- *
- * @subsection led_control LED Control Example
- * @code
- * // Initialize GPIO for LED control
- * GPIO_Handle_t gpio_led;
- *
- * // Enable GPIO clock
- * GPIO_PeriClockControl(GPIOA, ENABLE);
- *
- * // Configure LED pin
- * gpio_led.pGPIOx = GPIOA;
- * gpio_led.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
- * gpio_led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
- * gpio_led.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- * gpio_led.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
- * gpio_led.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
- *
- * GPIO_Init(&gpio_led);
- *
- * // Control LED
- * GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_5, GPIO_PIN_SET);   // Turn ON
- * GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_5, GPIO_PIN_RESET); // Turn OFF
- * GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);                  // Toggle
- * @endcode
- *
- * @subsection button_input Button Input Example
- * @code
- * // Initialize GPIO for button input
- * GPIO_Handle_t gpio_btn;
- *
- * // Enable GPIO clock
- * GPIO_PeriClockControl(GPIOC, ENABLE);
- *
- * // Configure button pin
- * gpio_btn.pGPIOx = GPIOC;
- * gpio_btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
- * gpio_btn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
- * gpio_btn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- * gpio_btn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
- *
- * GPIO_Init(&gpio_btn);
- *
- * // Read button state
- * if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == GPIO_PIN_RESET) {
- *     // Button pressed (assuming active low)
- * }
- * @endcode
- *
- * @section interrupt_example Interrupt Example
- * @code
- * // Configure GPIO interrupt
- * GPIO_Handle_t gpio_int;
- *
- * // Enable GPIO clock
- * GPIO_PeriClockControl(GPIOA, ENABLE);
- *
- * // Configure interrupt pin
- * gpio_int.pGPIOx = GPIOA;
- * gpio_int.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_0;
- * gpio_int.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IT_FT;  // Falling edge trigger
- * gpio_int.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- * gpio_int.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
- *
- * GPIO_Init(&gpio_int);
- *
- * // Configure NVIC
- * GPIO_IRQPriorityConfig(EXTI0_IRQn, 15);
- * GPIO_IRQInterruptConfig(EXTI0_IRQn, ENABLE);
- *
- * // Interrupt handler
- * void EXTI0_IRQHandler(void) {
- *     GPIO_IRQHandling(GPIO_PIN_NO_0);
- *     // User code here
- * }
- * @endcode
- */
