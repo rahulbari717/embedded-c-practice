@@ -169,6 +169,7 @@
 #define SYSCFG_BASEADDR (APB2PERIPH_BASEADDR + 0x3800) // SYSCFG (System Configuration Controller) base address
 #define USART1_BASEADDR (APB2PERIPH_BASEADDR + 0x1000) // USART1 base address
 #define USART6_BASEADDR (APB2PERIPH_BASEADDR + 0x1400) // USART6 base address
+#define SPI4_BASEADDR (APB2PERIPH_BASEADDR + 0x3400) // SPI4 base address
 
 //==============================================================================
 // Peripheral Register Definition Structures
@@ -302,6 +303,12 @@ typedef struct {
 #define EXTI ((EXTI_RegDef_t*)EXTI_BASEADDR)       // Pointer to EXTI registers
 #define SYSCFG ((SYSCFG_RegDef_t*)SYSCFG_BASEADDR) // Pointer to SYSCFG registers
 
+#define SPI1 ((SPI_RegDef_t*)SPI1_BASEADDR) // Pointer to SPI1 registers
+#define SPI2 ((SPI_RegDef_t*)SPI2_BASEADDR) // Pointer to SPI2 registers
+#define SPI3 ((SPI_RegDef_t*)SPI3_BASEADDR) // Pointer to SPI3 registers
+#define SPI4 ((SPI_RegDef_t*)SPI4_BASEADDR) // Pointer to SPI4 registers
+
+
 //==============================================================================
 // Clock Enable Macros for GPIOx Peripherals
 // These macros enable the clock for specific GPIO ports by setting the
@@ -350,61 +357,6 @@ typedef struct {
 #define SPI3_PCLK_DI()                        (RCC->APB1ENR &= ~(1 << 15))   /* Disable SPI3 peripheral clock */
 #define SPI4_PCLK_DI()                        (RCC->APB2ENR &= ~(1 << 13))   /* Disable SPI4 peripheral clock */
 
-
-//==============================================================================
-// Macros to Reset GPIOx Peripherals
-// These macros perform a peripheral reset for GPIO ports by momentarily
-// setting and then clearing the corresponding bit in the RCC AHB1RSTR register.
-// The `do-while(0)` construct ensures the macro behaves like a single statement.
-//==============================================================================
-
-#define GPIOA_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 0));            \
-    (RCC->AHB1RSTR &= ~(1 << 0));           \
-  } while (0) // Reset GPIOA peripheral
-
-#define GPIOB_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 1));            \
-    (RCC->AHB1RSTR &= ~(1 << 1));           \
-  } while (0) // Reset GPIOB peripheral
-
-#define GPIOC_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 2));            \
-    (RCC->AHB1RSTR &= ~(1 << 2));           \
-  } while (0) // Reset GPIOC peripheral
-
-#define GPIOD_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 3));            \
-    (RCC->AHB1RSTR &= ~(1 << 3));           \
-  } while (0) // Reset GPIOD peripheral
-
-#define GPIOE_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 4));            \
-    (RCC->AHB1RSTR &= ~(1 << 4));           \
-  } while (0) // Reset GPIOE peripheral
-
-#define GPIOF_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 5));            \
-    (RCC->AHB1RSTR &= ~(1 << 5));           \
-  } while (0) // Reset GPIOF peripheral
-
-#define GPIOG_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 6));            \
-    (RCC->AHB1RSTR &= ~(1 << 6));           \
-  } while (0) // Reset GPIOG peripheral
-
-#define GPIOH_REG_RESET()                   \
-  do {                                      \
-    (RCC->AHB1RSTR |= (1 << 7));            \
-    (RCC->AHB1RSTR &= ~(1 << 7));           \
-  } while (0) // Reset GPIOH peripheral
 /*
  * Macros to reset GPIOx peripherals
  * These macros perform a peripheral reset by toggling the reset bit in RCC_AHB1RSTR
