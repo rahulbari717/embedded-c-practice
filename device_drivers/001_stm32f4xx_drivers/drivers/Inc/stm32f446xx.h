@@ -268,7 +268,6 @@ typedef struct
 	volatile uint32_t I2SPR;     /*!< SPI_I2S prescaler register      - Address offset: 0x20 */
 } SPI_RegDef_t;
 
-
 /**
  * @brief SYSCFG peripheral registers
  * The System Configuration Controller (SYSCFG) manages various system
@@ -308,6 +307,12 @@ typedef struct {
 #define SPI3 ((SPI_RegDef_t*)SPI3_BASEADDR) // Pointer to SPI3 registers
 #define SPI4 ((SPI_RegDef_t*)SPI4_BASEADDR) // Pointer to SPI4 registers
 
+#define USART1 ((USART_RegDef_t*)USART1_BASEADDR) // Pointer to USART1 registers
+#define USART2 ((USART_RegDef_t*)USART2_BASEADDR) // Pointer to USART2 registers
+#define USART3 ((USART_RegDef_t*)USART3_BASEADDR) // Pointer to USART3 registers
+#define UART4 ((USART_RegDef_t*)UART4_BASEADDR)   // Pointer to UART4 registers
+#define UART5 ((USART_RegDef_t*)UART5_BASEADDR)   // Pointer to UART5 registers
+#define USART6 ((USART_RegDef_t*)USART6_BASEADDR) // Pointer to USART6 registers
 
 //==============================================================================
 // Clock Enable Macros for GPIOx Peripherals
@@ -334,6 +339,16 @@ typedef struct {
 #define SPI3_PCLK_EN()                        (RCC->APB1ENR |= (1 << 15))   /* Enable SPI3 peripheral clock */
 #define SPI4_PCLK_EN()                        (RCC->APB2ENR |= (1 << 13))   /* Enable SPI4 peripheral clock */
 
+/*
+* Clock Enable Macros for USART/UART peripherals
+*/
+#define USART1_PCLK_EN()                      (RCC->APB2ENR |= (1 << 4))    /* Enable USART1 peripheral clock */
+#define USART2_PCLK_EN()                      (RCC->APB1ENR |= (1 << 17))   /* Enable USART2 peripheral clock */
+#define USART3_PCLK_EN()                      (RCC->APB1ENR |= (1 << 18))   /* Enable USART3 peripheral clock */
+#define UART4_PCLK_EN()                       (RCC->APB1ENR |= (1 << 19))   /* Enable UART4 peripheral clock */
+#define UART5_PCLK_EN()                       (RCC->APB1ENR |= (1 << 20))   /* Enable UART5 peripheral clock */
+#define USART6_PCLK_EN()                      (RCC->APB2ENR |= (1 << 5))    /* Enable USART6 peripheral clock */
+
 
 //==============================================================================
 // Clock Disable Macros for GPIOx Peripherals
@@ -358,6 +373,17 @@ typedef struct {
 #define SPI4_PCLK_DI()                        (RCC->APB2ENR &= ~(1 << 13))   /* Disable SPI4 peripheral clock */
 
 /*
+* Clock Disable Macros for USART/UART peripherals
+*/
+#define USART1_PCLK_DI()                      (RCC->APB2ENR &= ~(1 << 4))    /* Disable USART1 peripheral clock */
+#define USART2_PCLK_DI()                      (RCC->APB1ENR &= ~(1 << 17))   /* Disable USART2 peripheral clock */
+#define USART3_PCLK_DI()                      (RCC->APB1ENR &= ~(1 << 18))   /* Disable USART3 peripheral clock */
+#define UART4_PCLK_DI()                       (RCC->APB1ENR &= ~(1 << 19))   /* Disable UART4 peripheral clock */
+#define UART5_PCLK_DI()                       (RCC->APB1ENR &= ~(1 << 20))   /* Disable UART5 peripheral clock */
+#define USART6_PCLK_DI()                      (RCC->APB2ENR &= ~(1 << 5))    /* Disable USART6 peripheral clock */
+
+
+/*
  * Macros to reset GPIOx peripherals
  * These macros perform a peripheral reset by toggling the reset bit in RCC_AHB1RSTR
  * The do-while(0) construct ensures the macro behaves like a function call
@@ -376,8 +402,15 @@ typedef struct {
 #define SPI3_REG_RESET()     do { RCC->APB1RSTR |=  (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while(0)
 #define SPI4_REG_RESET()     do { RCC->APB2RSTR |=  (1 << 13); RCC->APB2RSTR &= ~(1 << 13); } while(0)
 
-
-
+/*
+ * Macros to reset USART/UART peripherals
+ */
+#define USART1_REG_RESET()   do { RCC->APB2RSTR |=  (1 << 4);  RCC->APB2RSTR &= ~(1 << 4);  } while(0)
+#define USART2_REG_RESET()   do { RCC->APB1RSTR |=  (1 << 17); RCC->APB1RSTR &= ~(1 << 17); } while(0)
+#define USART3_REG_RESET()   do { RCC->APB1RSTR |=  (1 << 18); RCC->APB1RSTR &= ~(1 << 18); } while(0)
+#define UART4_REG_RESET()    do { RCC->APB1RSTR |=  (1 << 19); RCC->APB1RSTR &= ~(1 << 19); } while(0)
+#define UART5_REG_RESET()    do { RCC->APB1RSTR |=  (1 << 20); RCC->APB1RSTR &= ~(1 << 20); } while(0)
+#define USART6_REG_RESET()   do { RCC->APB2RSTR |=  (1 << 5);  RCC->APB2RSTR &= ~(1 << 5);  } while(0)
 
 
 /**
@@ -557,6 +590,7 @@ typedef struct {
 #define GPIO_PIN_RESET    (RESET)             /* GPIO pin reset state */
 #define FLAG_RESET				RESET
 #define FLAG_SET					SET
+
 /*
  * Bit position definitions for SPI peripheral
  */
@@ -597,9 +631,9 @@ typedef struct {
 #define SPI_SR_BSY           7  /*!< Busy Flag */
 #define SPI_SR_FRE           8  /*!< Frame Format Error */
 
-
-
 #include "stm32f446xx_gpio_driver.h"
 #include "stm32f446xx_spi_driver.h"
+#include "stm32f446xx_USART_driver.h"
+#include "stm32f4xx_rcc_driver.h"
 
 #endif /* INC_STM32F446XX_H_ */
