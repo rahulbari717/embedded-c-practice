@@ -26,3 +26,5 @@ Release/
 *.swp
 *.swo
 
+# Espidf vscode
+.vscode	
