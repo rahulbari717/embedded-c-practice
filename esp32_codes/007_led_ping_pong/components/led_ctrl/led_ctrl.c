@@ -4,7 +4,6 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 
-
 static const char *TAG = "LED_CTRL";
 
 // Task handles to communicate between them
@@ -13,6 +12,28 @@ static TaskHandle_t white_task_hdl = NULL;
 
 // Pingpong mode toggle; needs 'volatile' as it's modified in ISR
 static volatile bool pingpong_active = false;
+
+static void IRAM_ATTR button_isr_handler(void *arg);
+
+// button init
+void button_init(void){
+    // Configure Button GPIO as input with falling edge interrupt
+    gpio_config_t btn_conf = {
+        .pin_bit_mask = BIT64(BUTTON_GPIO),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_NEGEDGE
+    };
+    gpio_config(&btn_conf);
+
+    // Register ISR
+    gpio_install_isr_service(0);
+    gpio_isr_handler_add(BUTTON_GPIO, button_isr_handler, NULL);
+
+    // Initialize button state
+    ESP_LOGI(TAG, "Button initialized");
+}
 
 // RED LED task
 static void red_task(void *arg) {
@@ -62,24 +83,11 @@ static void IRAM_ATTR button_isr_handler(void *arg) {
 
 // Setup tasks and GPIOs
 void start_pingpong_on_button(void) {
-    // Configure Button GPIO as input with falling edge interrupt
-    gpio_config_t btn_conf = {
-        .pin_bit_mask = BIT64(BUTTON_GPIO),
-        .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_NEGEDGE
-    };
-    gpio_config(&btn_conf);
-
-    // Register ISR
-    gpio_install_isr_service(0);
-    gpio_isr_handler_add(BUTTON_GPIO, button_isr_handler, NULL);
-
+    
+    button_init();
     // Create tasks
     xTaskCreatePinnedToCore(red_task, "RED", 2048, NULL, 5, &red_task_hdl, 0);
     xTaskCreatePinnedToCore(white_task, "WHITE", 2048, NULL, 5, &white_task_hdl, 1);
 
     ESP_LOGI(TAG, "Ping-pong LED system ready. Press GPIO %d", BUTTON_GPIO);
 }
-

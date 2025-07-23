@@ -129,10 +129,9 @@ void app_main(void) {
     
     // Create button monitoring task
     BaseType_t result = xTaskCreate(button_monitor_task, "button_monitor_task", 4096, NULL, 10, NULL);
-if (result != pdPASS) {
-    ESP_LOGE(TAG, "Failed to create button monitor task");
-}
-
+    if (result != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create button monitor task");
+    }
     
     ESP_LOGI(TAG, "System initialized successfully!");
     ESP_LOGI(TAG, "Press Button 1 (GPIO 32) to turn on LED for 2 seconds");
