@@ -9,7 +9,8 @@ static const char* TAG = "BUTTON";
 static int button1_prev_state = 1; // Assuming pull-up, so released = 1
 static int button2_prev_state = 1;
 
-void button_init(void) {
+void button_init(void)
+{
     // Configure button 1 pin as input with pull-up
     gpio_config_t button1_config = {
         .pin_bit_mask = (1ULL << BUTTON1_PIN),
