@@ -28,3 +28,6 @@ Release/
 
 # Espidf vscode
 .vscode	
+*.pem
+*.key
+ca_key.*
