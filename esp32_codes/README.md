@@ -50,7 +50,6 @@ This repository contains ESP32 projects demonstrating firmware development, sens
 
 
 ## 📁 Project Directory
-
 **001_hello_world** 🌟  
 Basic ESP32 "Hello World" program with serial output and system initialization.
 
@@ -71,5 +70,17 @@ Interrupt Service Routine implementation for button-controlled LED operations.
 
 **007_dht11** 🌡️  
 DHT11 temperature and humidity sensor interfacing with data validation and error handling.
+
+**008_ir_sensor_buzzer** 🔊  
+IR sensor integration with buzzer control for proximity detection and audio feedback.
+
+**009_ir_sensor_task** 📡  
+Task-based IR sensor management with FreeRTOS scheduling and event handling.
+
+**010_pir_sensor_buzzer** 🚨  
+PIR motion sensor implementation with buzzer alerts and motion detection logic.
+
+**011_freeRTOS_Task** ⚙️  
+Advanced FreeRTOS task creation, synchronization, and multi-threading demonstrations.
 
 ---
