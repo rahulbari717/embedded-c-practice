@@ -83,4 +83,58 @@ PIR motion sensor implementation with buzzer alerts and motion detection logic.
 **011_freeRTOS_Task** ⚙️  
 Advanced FreeRTOS task creation, synchronization, and multi-threading demonstrations.
 
+**012_task_notifications** 📩  
+FreeRTOS task notification examples demonstrating direct-to-task signaling and lightweight inter-task communication.  
+
+**013_ldr** 🌞  
+Light Dependent Resistor (LDR) sensor interfacing with ADC input for light intensity monitoring.  
+
+**014_Mutex** 🔒  
+FreeRTOS mutex usage for safe resource sharing between multiple tasks.  
+
+**015_Queue** 📬  
+Queue-based communication between FreeRTOS tasks for structured data passing.  
+
+**016_Hotel_system_FreeRTOS** 🏨  
+Simulation of a hotel automation system using FreeRTOS tasks for lights, fans, and sensors.  
+
+**017_timer** ⏱️  
+ESP-IDF software timer usage for periodic events and task scheduling.  
+
+**018_nvs** 💾  
+Non-Volatile Storage (NVS) examples for storing and retrieving persistent data on ESP32 flash.  
+
+**019_gpio_output** 🔌  
+Basic GPIO output handling with digital pin control.  
+
+**020_gpio_input** 🎛️  
+GPIO input handling with button/switch interfacing.  
+
+**021_uart** 🖧  
+UART communication example for transmitting and receiving serial data.  
+
+**022_uart_queue** 📤📥  
+UART driver with FreeRTOS queue integration for structured serial communication.  
+
+**023_i2c_tools_address** 🔗  
+I2C communication utilities with address scanning and peripheral discovery.  
+
+**024_i2c_oled_hello** 🖥️
+Simple I2C OLED display example using SSD1306. Displays "HELLO" text on a 128x64 OLED via ESP32 I2C Master driver.
+
+**025_oled_display_library** 📚
+Reusable OLED display driver library for ESP32 with text rendering support. Encapsulates SSD1306 initialization, command handling, and text drawing into a standalone component for modular projects.
+
+
+---
+
+## 📷 Hardware Reference  
+
+![ESP32 Pico DevKitM-2 Pinout](esp32-pico-devkitm-2-pinout.png)  
+*ESP32 Pico DevKitM-2 Pinout Diagram for reference*
+
+📷 Pinout image credit: Original source unknown (reference only, not for commercial use).
+
+
+
 ---
