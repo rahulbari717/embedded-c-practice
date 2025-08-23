@@ -1,0 +1,9 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "files.associations": {
+    "esp_log.h": "c",
+    "wifi_connect.h": "c",
+    "esp_netif.h": "c",
+    "semphr.h": "c"
+  }
+}
