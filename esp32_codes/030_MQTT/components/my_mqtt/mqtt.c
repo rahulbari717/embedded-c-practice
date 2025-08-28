@@ -60,6 +60,7 @@ static void handle_mqtt_connected(void)
     esp_mqtt_client_subscribe(client, "animal/mammal/cat/felix", 1);
     esp_mqtt_client_subscribe(client, "animal/reptiles/+/slither", 1);
     esp_mqtt_client_subscribe(client, "animal/fish/#", 1);
+    esp_mqtt_client_subscribe(client, "home/rahul/#", 1);
 }
 
 static void handle_mqtt_disconnected(void)
