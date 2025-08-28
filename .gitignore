@@ -30,4 +30,9 @@ Release/
 .vscode	
 *.pem
 *.key
+
 ca_key.*
+sdkconfig.local
+sdkconfig
+sdkconfig.old
+

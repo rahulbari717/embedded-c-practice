@@ -426,6 +426,38 @@ CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
 #
+# My Custom Menu
+#
+# CONFIG_MY_BOOL is not set
+CONFIG_MY_STRING="hello rahul"
+CONFIG_MY_INT=1
+CONFIG_OPTION_1=y
+# CONFIG_OPTION_2 is not set
+
+#
+# WiFi Configuration
+#
+CONFIG_WIFI_SSID="ssid"
+CONFIG_WIFI_PASSWORD="password"
+# end of WiFi Configuration
+
+#
+# LED Pin Configuration
+#
+CONFIG_LED_PIN_1=2
+CONFIG_LED_PIN_2=4
+CONFIG_LED_PIN_3=0
+# end of LED Pin Configuration
+
+#
+# Button Pin Configuration
+#
+CONFIG_BUTTON_PIN_1=32
+CONFIG_BUTTON_PIN_2=33
+# end of Button Pin Configuration
+# end of My Custom Menu
+
+#
 # Compiler options
 #
 CONFIG_COMPILER_OPTIMIZATION_DEBUG=y

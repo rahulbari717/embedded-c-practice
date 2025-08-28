@@ -8,7 +8,7 @@
 **Version:** 1.0  
 **Date:** August 2025
 
----
+--- 
 
 ## 1. Product Brief
 

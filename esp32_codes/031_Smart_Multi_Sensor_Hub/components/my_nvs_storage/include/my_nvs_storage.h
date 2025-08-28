@@ -1,0 +1,4 @@
+#ifndef MY_NVS_STORAGE_H
+#define MY_NVS_STORAGE_H
+
+#endif // MY_NVS_STORAGE_H
