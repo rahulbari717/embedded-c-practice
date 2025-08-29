@@ -1,8 +1,22 @@
+/**
+ * @file config.c
+ * @brief Kconfig-based firmware configuration functions.
+ * @author Rahul B.
+ * @version 1.0
+ * @date August 2025
+ */
+
 #include "esp_config.h"
 #include "esp_log.h"
+#include "sdkconfig.h"
 
 static const char *TAG = "menu_config";
 
+/**
+ * @brief Initializes and logs all Kconfig menu settings.
+ * * This function reads various configuration values set via `idf.py menuconfig`
+ * and logs them to the console for verification.
+ */
 void menu_config(void)
 {
     ESP_LOGI(TAG, "MY_INT %d", CONFIG_MY_INT);

@@ -428,17 +428,17 @@ CONFIG_PARTITION_TABLE_MD5=y
 #
 # My Custom Menu
 #
-# CONFIG_MY_BOOL is not set
-CONFIG_MY_STRING="hello rahul"
+CONFIG_MY_BOOL=y
+CONFIG_MY_STRING="hello rahul this is me"
 CONFIG_MY_INT=1
-# CONFIG_OPTION_1 is not set
-CONFIG_OPTION_2=y
+CONFIG_OPTION_1=y
+# CONFIG_OPTION_2 is not set
 
 #
 # WiFi Configuration
 #
-CONFIG_WIFI_SSID="MyWiFi"
-CONFIG_WIFI_PASSWORD="MyPassword123"
+CONFIG_WIFI_SSID="rahul"
+CONFIG_WIFI_PASSWORD="rahul"
 # end of WiFi Configuration
 
 #

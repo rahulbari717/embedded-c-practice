@@ -1,5 +1,25 @@
-#include "esp_debub.h"
+/**
+ * @file esp_debug.c
+ * @brief Firmware debugging and logging functions.
+ * * @author Rahul B.
+ * @version 1.0
+ * @date August 2025
+ */
 
+#include "esp_debub.h"
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_system.h"
+#include "esp_log.h"
+#include "esp_err.h"
+
+/**
+ * @brief Firmware shutdown handler.
+ * * This function is registered to be called before the device reboots.
+ * It provides a snapshot of the running tasks and a shutdown message,
+ * which is useful for debugging and firmware stability analysis.
+ */
 void FirmwareShutdownHandler(void)
 {
     printf("............ In the shutdown handler ...................\n");
@@ -15,6 +35,11 @@ void FirmwareShutdownHandler(void)
     printf("******************* Shutting down **************************\n");
 }
 
+/**
+ * @brief Logs the reset reason of the ESP32 and registers a shutdown handler.
+ * * This provides critical information for debugging unexpected resets,
+ * such as a crash or a watchdog timer event.
+ */
 void ResetReason(void)
 {
     esp_reset_reason_t resetReason;

@@ -34,6 +34,13 @@
         "leds.h": "c",
         "chrono": "c",
         "string.h": "c",
-        "esp_debub.h": "c"
+        "esp_debub.h": "c",
+        "forward_list": "c",
+        "list": "c",
+        "slist": "c",
+        "nimble.h": "c",
+        "esp_nimble_hci.h": "c",
+        "my_nvs_storage.h": "c",
+        "esp_bt.h": "c"
     }
 }
