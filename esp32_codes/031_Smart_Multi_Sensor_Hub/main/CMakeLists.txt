@@ -5,7 +5,8 @@ idf_component_register(SRCS
                     REQUIRES 
                         esp_system_debug 
                         menu_config 
-                        my_nvs_storage 
-                        NimBle 
-                        bt  
+                        my_nvs_storage             
+                        my_mqtt
+                        wifi_connect 
+                        sntp_time
                     )

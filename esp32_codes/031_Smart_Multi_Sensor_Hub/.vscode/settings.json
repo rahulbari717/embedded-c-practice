@@ -41,6 +41,9 @@
         "nimble.h": "c",
         "esp_nimble_hci.h": "c",
         "my_nvs_storage.h": "c",
-        "esp_bt.h": "c"
+        "esp_bt.h": "c",
+        "wifi_connect.h": "c",
+        "mqtt.h": "c",
+        "esp_wifi.h": "c"
     }
 }

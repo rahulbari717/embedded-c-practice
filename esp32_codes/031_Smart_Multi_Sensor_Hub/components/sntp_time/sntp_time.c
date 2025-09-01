@@ -6,18 +6,20 @@
 #include "esp_sntp.h"
 
 #define TAG "NTP TIME"
+#define TAG_DEBUG "NTP_DEBUG"
 
 SemaphoreHandle_t got_time_semaphore;
 
 void print_time()
 {
+    esp_log_level_set(TAG_DEBUG, ESP_LOG_DEBUG);
     time_t now = 0;
     time(&now);
     struct tm *time_info = localtime(&now);
 
     char time_buffer[50];
     strftime(time_buffer, sizeof(time_buffer), "%c", time_info);
-    ESP_LOGI(TAG, "************ %s ***********", time_buffer);
+    ESP_LOGW(TAG, "************ %s ***********", time_buffer);
 }
 
 void on_got_time(struct timeval *tv)

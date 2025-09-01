@@ -14,6 +14,30 @@
 #include "esp_log.h"
 #include "esp_err.h"
 
+#include <stdlib.h>
+#include <string.h>
+
+// for idf V5
+#include "esp_mac.h"
+
+static const char *TAG = "esp_debug";
+
+void print_mac_address(void)
+{
+    uint8_t mac[6];
+    esp_err_t ret = esp_read_mac(mac, ESP_MAC_WIFI_STA); // Get MAC for Wi-Fi Station
+
+    if (ret == ESP_OK)
+    {
+        ESP_LOGI(TAG, "ESP32 MAC Address: %02X:%02X:%02X:%02X:%02X:%02X",
+                 mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    }
+    else
+    {
+        ESP_LOGE(TAG, "Failed to read MAC address, error: %s", esp_err_to_name(ret));
+    }
+}
+
 /**
  * @brief Firmware shutdown handler.
  * * This function is registered to be called before the device reboots.
@@ -42,6 +66,7 @@ void FirmwareShutdownHandler(void)
  */
 void ResetReason(void)
 {
+
     esp_reset_reason_t resetReason;
     const char *swResetReasons[] = {"ESP_RST_UNKNOWN",
                                     "ESP_RST_POWERON",
@@ -60,5 +85,7 @@ void ResetReason(void)
     printf("Shutdown Handler result : %s\n", esp_err_to_name(ret));
     resetReason = esp_reset_reason();
     printf("Reset Reason: %s\n", swResetReasons[resetReason]);
+
     printf("Software Start\n");
+    print_mac_address();
 }

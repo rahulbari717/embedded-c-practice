@@ -85,14 +85,6 @@ esp_err_t wifi_connect_sta(char *ssid, char *pass, int timeout)
     esp_netif = esp_netif_create_default_wifi_sta();
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
 
-    // for static ip...
-    // ESP_ERROR_CHECK(esp_netif_dhcpc_stop(esp_netif));
-    // esp_netif_ip_info_t ip_info;
-    // ip_info.ip.addr = ipaddr_addr("192.168.43.150");
-    // ip_info.gw.addr = ipaddr_addr("192.168.43.1");
-    // ip_info.netmask.addr = ipaddr_addr("255.255.255.0");
-    // ESP_ERROR_CHECK(esp_netif_set_ip_info(esp_netif, &ip_info));
-
     wifi_config_t wifi_config = {};
     strncpy((char *)wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid) - 1);
     strncpy((char *)wifi_config.sta.password, pass, sizeof(wifi_config.sta.password) - 1);
