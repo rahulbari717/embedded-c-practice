@@ -31,6 +31,14 @@ void on_got_time(struct timeval *tv)
 
 void sntp(void)
 {
+
+    // ADD THESE LINES AT THE START:
+    if (esp_sntp_enabled())
+    {
+        esp_sntp_stop();
+        vTaskDelay(pdMS_TO_TICKS(200)); // Small delay to ensure cleanup
+    }
+
     esp_log_level_set(TAG_DEBUG, ESP_LOG_DEBUG);
     got_time_semaphore = xSemaphoreCreateBinary();
 

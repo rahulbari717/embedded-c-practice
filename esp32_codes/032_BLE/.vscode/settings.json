@@ -45,6 +45,7 @@
         "wifi_connect.h": "c",
         "mqtt.h": "c",
         "esp_wifi.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "ble_hs.h": "c"
     }
 }

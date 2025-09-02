@@ -17,7 +17,9 @@
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "sntp_time.h"
 
+#define WAIT_TIME (60 * 2000) // 2 minute
 static const char *TAG = "MAIN";
 
 /**
@@ -41,16 +43,32 @@ void app_main()
 	 */
 	initialize_and_use_nvs();
 
-	wifi_connect_ap("rahul_esp32", "password");
+	// while (1)
+	// {
+
+	// 	wifi_connect_ap("rahul_esp32", "password");
+	// 	vTaskDelay(pdMS_TO_TICKS(WAIT_TIME));
+	// 	wifi_disconnect();
+
+	// 	wifi_connect_sta("Rahul", "rahul8459", 10000);
+	// 	vTaskDelay(pdMS_TO_TICKS(WAIT_TIME));
+	// 	sntp();
+	// 	wifi_disconnect();
+	// }
+
+	// mqtt_app_start();
 
 	// Start WiFi with improved error handling
-	/* esp_err_t wifi_result = start_wifi();
+	esp_err_t wifi_result = start_wifi();
 	if (wifi_result != ESP_OK)
 	{
 		ESP_LOGE(TAG, "WiFi initialization failed: %s", esp_err_to_name(wifi_result));
 		// Could start AP mode here for configuration
 		return;
-	} */
+	}
+
+	// vTaskDelay(pdMS_TO_TICKS(WAIT_TIME));
+
 	// mqtt_main();
 
 	/**

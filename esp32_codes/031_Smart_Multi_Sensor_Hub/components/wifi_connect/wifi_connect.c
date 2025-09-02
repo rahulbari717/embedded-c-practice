@@ -9,6 +9,9 @@
 #include "esp_http_server.h"
 #include "esp_mac.h"
 
+#define SSID (CONFIG_WIFI_SSID)
+#define PASSWORD (CONFIG_WIFI_PASSWORD)
+
 static char *TAG = "WIFI CONNECT";
 wifi_context_t wifi_ctx = {0}; // actual definition
 esp_netif_t *esp_netif = NULL;
@@ -361,8 +364,8 @@ esp_err_t start_wifi(void)
 
     wifi_connect_init();
 
-    // esp_err_t ret = wifi_connect_sta(CONFIG_WIFI_SSID, CONFIG_WIFI_PASSWORD, WIFI_TIMEOUT_MS);
-    esp_err_t ret = wifi_connect_sta("Rahul", "rahul8459", WIFI_TIMEOUT_MS);
+    esp_err_t ret = wifi_connect_sta(SSID, PASSWORD, WIFI_TIMEOUT_MS);
+    // esp_err_t ret = wifi_connect_sta("Rahul", "rahul8459", WIFI_TIMEOUT_MS);
     if (ret != ESP_OK)
     {
         ESP_LOGE(TAG, "WiFi connection failed: %s", esp_err_to_name(ret));
