@@ -101,11 +101,11 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
-	status = xTaskCreate(task1_handler, "Task-1", 200, "Hello world from task-1", 2, &task1_handle);
-	configASSERT(status == pdPASS);
-
-	status = xTaskCreate(task2_handler, "Task-2", 200, "Hello world from task-2", 2, &task2_handle);
-	configASSERT(status == pdPASS);
+//	status = xTaskCreate(task1_handler, "Task-1", 200, "Hello world from task-1", 2, &task1_handle);
+//	configASSERT(status == pdPASS);
+//
+//	status = xTaskCreate(task2_handler, "Task-2", 200, "Hello world from task-2", 2, &task2_handle);
+//	configASSERT(status == pdPASS);
 
 	status = xTaskCreate(task3_handler, "Task-3", 200, "LED1 - task-3", 2, &task3_handle);
 	configASSERT(status == pdPASS);
@@ -116,8 +116,8 @@ int main(void)
 	status = xTaskCreate(task5_handler, "Task-5", 200, "LED3 - task-5", 2, &task5_handle);
 	configASSERT(status == pdPASS);
 
-	status = xTaskCreate(task6_handler, "Task-6", 200, "LED4 - task-6", 2, &task6_handle);
-	configASSERT(status == pdPASS);
+//	status = xTaskCreate(task6_handler, "Task-6", 200, "LED4 - task-6", 2, &task6_handle);
+//	configASSERT(status == pdPASS);
 
 	// start FreeRTOS scheduler
 
@@ -254,7 +254,7 @@ static void task3_handler(void *Parameters)
     {
       printf("%s\n", (char*) Parameters);
       HAL_GPIO_TogglePin(GPIOA, LD1_Pin);
-      vTaskDelay(500);
+      vTaskDelay(1000);
       taskYIELD();
      }
 }
@@ -265,7 +265,7 @@ static void task4_handler(void *Parameters)
     {
 	  printf("%s\n", (char*) Parameters);
 	  HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
-	  vTaskDelay(1000);
+	  vTaskDelay(2000);
 	  taskYIELD();
     }
 }
@@ -276,7 +276,7 @@ static void task5_handler(void *Parameters)
     {
       printf("%s\n", (char*) Parameters);
 	  HAL_GPIO_TogglePin(GPIOA, LD3_Pin);
-	  vTaskDelay(1500);
+	  vTaskDelay(3000);
 	  taskYIELD();
     }
 }
